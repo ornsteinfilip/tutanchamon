@@ -45,7 +45,7 @@ async function init() {
   renderFilters();
   renderPlan();
   renderSources();
-  showDefaultDetail();
+  if (!applyRouteFromHash()) showDefaultDetail();
 }
 
 function applyMeta() {
@@ -65,6 +65,8 @@ function bindEvents() {
   els.sourcesOverlay.addEventListener('click', (event) => {
     if (event.target === els.sourcesOverlay) closeSources();
   });
+  window.addEventListener('hashchange', handleRouteChange);
+  window.addEventListener('popstate', handleRouteChange);
 
   window.addEventListener('keydown', (event) => {
     if (event.code === 'Enter' && els.app.classList.contains('is-splash')) enterPlan();
@@ -75,6 +77,12 @@ function bindEvents() {
 function enterPlan() {
   if (!els.app.classList.contains('is-splash')) return;
   els.app.classList.remove('is-splash');
+}
+
+function handleRouteChange() {
+  if (applyRouteFromHash()) return;
+  closeSources();
+  showDefaultDetail();
 }
 
 function openSources() {
@@ -132,7 +140,7 @@ function renderPlan() {
     button.dataset.label = room.label;
     button.setAttribute('aria-label', room.title);
     applyPlanBox(button, room);
-    button.addEventListener('click', () => selectRoom(room.id));
+    button.addEventListener('click', () => selectRoom(room.id, { updateHash: true }));
     els.planCanvas.append(button);
   }
 
@@ -163,7 +171,7 @@ function renderPlan() {
     }
     button.addEventListener('click', (event) => {
       event.stopPropagation();
-      selectHotspot(hotspot.id);
+      selectHotspot(hotspot.id, { updateHash: true });
     });
     els.planCanvas.append(button);
   }
@@ -194,7 +202,7 @@ function applyPlanBox(element, item) {
   element.style.setProperty('--h', `${item.h}%`);
 }
 
-function selectRoom(roomId) {
+function selectRoom(roomId, options = {}) {
   const room = getRoom(roomId);
   if (!room) return;
 
@@ -202,9 +210,10 @@ function selectRoom(roomId) {
   state.activeHotspotId = null;
   showRoomDetail(room);
   markActiveElements();
+  if (options.updateHash) updateRouteHash('room', room.id);
 }
 
-function selectHotspot(hotspotId) {
+function selectHotspot(hotspotId, options = {}) {
   const hotspot = state.data.hotspots.find((entry) => entry.id === hotspotId);
   if (!hotspot) return;
 
@@ -239,6 +248,25 @@ function selectHotspot(hotspotId) {
   }
 
   markActiveElements();
+  if (options.updateHash) updateRouteHash('hotspot', hotspot.id);
+}
+
+function selectPerson(personId, options = {}) {
+  const person = getPerson(personId);
+  if (!person) return;
+
+  state.activeRoomId = null;
+  state.activeHotspotId = null;
+  showDetail({
+    title: person.name,
+    body: person.body,
+    facts: [],
+    sourceIds: person.sourceIds,
+    photo: resolvePhoto(person),
+    relatedPersonIds: []
+  });
+  markActiveElements();
+  if (options.updateHash) updateRouteHash('person', person.id);
 }
 
 function showRoomDetail(room, relatedPersonIds = []) {
@@ -254,6 +282,8 @@ function showRoomDetail(room, relatedPersonIds = []) {
 
 function showDefaultDetail() {
   const detail = state.data.meta.defaultDetail;
+  state.activeRoomId = null;
+  state.activeHotspotId = null;
   showDetail({
     title: detail.title,
     body: detail.body,
@@ -261,6 +291,7 @@ function showDefaultDetail() {
     photo: resolvePhoto(detail),
     sourceIds: []
   });
+  markActiveElements();
 }
 
 function showDetail(detail) {
@@ -281,16 +312,7 @@ function renderRelatedPeople(personIds) {
     chip.className = 'personChip';
     chip.textContent = person.name;
     chip.title = person.role;
-    chip.addEventListener('click', () => {
-      showDetail({
-        title: person.name,
-        body: person.body,
-        facts: [],
-        sourceIds: person.sourceIds,
-        photo: resolvePhoto(person),
-        relatedPersonIds: []
-      });
-    });
+    chip.addEventListener('click', () => selectPerson(person.id, { updateHash: true }));
     els.relatedPeople.append(chip);
   }
 }
@@ -408,6 +430,10 @@ function getArtifact(artifactId) {
   return state.data.artifacts.find((entry) => entry.id === artifactId);
 }
 
+function getPerson(personId) {
+  return state.data.people.find((entry) => entry.id === personId);
+}
+
 function getRoom(roomId) {
   return state.data.rooms.find((entry) => entry.id === roomId);
 }
@@ -421,6 +447,59 @@ function resolvePhoto(item) {
   if (item.photo) return item.photo;
   if (!item.photoId) return null;
   return state.data.photos?.find((photo) => photo.id === item.photoId) ?? null;
+}
+
+function applyRouteFromHash() {
+  const route = parseRouteHash();
+  if (!route) return false;
+
+  if (route.type === 'room') {
+    if (!getRoom(route.id)) return false;
+    enterPlan();
+    closeSources();
+    selectRoom(route.id);
+    return true;
+  }
+
+  if (route.type === 'hotspot') {
+    if (!state.data.hotspots.some((hotspot) => hotspot.id === route.id)) return false;
+    enterPlan();
+    closeSources();
+    selectHotspot(route.id);
+    return true;
+  }
+
+  if (route.type === 'person') {
+    if (!getPerson(route.id)) return false;
+    enterPlan();
+    closeSources();
+    selectPerson(route.id);
+    return true;
+  }
+
+  return false;
+}
+
+function parseRouteHash(hash = window.location.hash) {
+  const value = hash.startsWith('#') ? hash.slice(1) : hash;
+  const separatorIndex = value.indexOf(':');
+  if (separatorIndex < 1) return null;
+
+  const type = value.slice(0, separatorIndex);
+  if (!['room', 'hotspot', 'person'].includes(type)) return null;
+
+  try {
+    const id = decodeURIComponent(value.slice(separatorIndex + 1));
+    return id ? { type, id } : null;
+  } catch {
+    return null;
+  }
+}
+
+function updateRouteHash(type, id) {
+  const nextHash = `#${type}:${encodeURIComponent(id)}`;
+  if (window.location.hash === nextHash) return;
+  history.pushState(null, '', nextHash);
 }
 
 function buildSourcesIndexLink(label) {
