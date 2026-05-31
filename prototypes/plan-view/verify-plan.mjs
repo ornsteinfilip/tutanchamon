@@ -9,10 +9,29 @@ const indexPath = new URL('./index.html', root);
 const content = JSON.parse(fs.readFileSync(contentPath, 'utf8'));
 const app = fs.readFileSync(appPath, 'utf8');
 const index = fs.readFileSync(indexPath, 'utf8');
+const photoCatalog = new Map((content.photos ?? []).map((photo) => [photo.id, photo]));
 const checks = [];
 
 function check(name, condition) {
   checks.push({ name, ok: Boolean(condition) });
+}
+
+function localPhotoExists(photo) {
+  const photoPath = photo?.src?.replace('./', '');
+  return Boolean(photoPath && fs.existsSync(path.join(root.pathname, photoPath)));
+}
+
+function resolvePhoto(item) {
+  if (!item) return null;
+  if (item.photo) return item.photo;
+  if (!item.photoId) return null;
+  return photoCatalog.get(item.photoId) ?? null;
+}
+
+function resolveHotspotPhoto(hotspot) {
+  if (hotspot.kind !== 'artifact') return resolvePhoto(hotspot);
+  const artifact = content.artifacts.find((entry) => entry.id === hotspot.artifactId);
+  return resolvePhoto(artifact);
 }
 
 check('HTML loads modular app.js', /src="\.\/src\/app\.js"/.test(index));
@@ -20,17 +39,21 @@ check('app.js fetches external content.json', /fetch\('\.\/data\/content\.json'\
 check('content has editable rooms', Array.isArray(content.rooms) && content.rooms.length >= 6);
 check('content has clickable hotspots', Array.isArray(content.hotspots) && content.hotspots.length >= 20);
 check('content has at least 10 artifacts', Array.isArray(content.artifacts) && content.artifacts.length >= 10);
-check('all artifact photos are local files', content.artifacts.every((artifact) => {
-  const photoPath = artifact.photo?.src?.replace('./', '');
-  return photoPath && fs.existsSync(path.join(root.pathname, photoPath));
-}));
+check('all artifact photos are local files', content.artifacts.every((artifact) => localPhotoExists(resolvePhoto(artifact))));
 check('all artifact photos have source pages', content.artifacts.every((artifact) => artifact.photo?.sourceUrl?.startsWith('https://commons.wikimedia.org/wiki/File:')));
+check('shared photo catalog has local files', Array.isArray(content.photos) && content.photos.length >= 10 && content.photos.every(localPhotoExists));
+check('shared photo catalog has source pages', content.photos.every((photo) => photo.sourceUrl?.startsWith('https://')));
+check('all rooms have sidebar photos', content.rooms.every((room) => localPhotoExists(resolvePhoto(room))));
+check('all people have sidebar photos', content.people.every((person) => localPhotoExists(resolvePhoto(person))));
+check('all hotspots have icon and sidebar photos', content.hotspots.every((hotspot) => localPhotoExists(resolveHotspotPhoto(hotspot))));
+check('hotspot renderer uses thumbnail images', /hotspotImage/.test(app) && !/button\.textContent = hotspot\.label/.test(app));
 check('intro keeps only the title text', content.meta?.intro?.title === 'Hrobka Tutanchamona' && !content.meta.intro.kicker && !content.meta.intro.text);
 check('intro uses the requested local photo', content.meta?.intro?.photo?.src === './assets/intro/tomb-entrance.jpg' && fs.existsSync(new URL('./assets/intro/tomb-entrance.jpg', root)));
 check('intro removed drawn entrance elements', !/class="cliffWall"|class="tombEntrance"|class="stairCut"|class="sun"/.test(index));
 check('detail panel has no fact list UI', !/factList|renderFacts/.test(index + app));
 check('detail panel has no kicker or subtitle UI', !/detailKicker|detailMeta|class="meta"|artifact\.short|getRoomTitle|Předsíň plná výbavy|Vozy a jejich části v předsíni/.test(index + app + JSON.stringify(content)));
 check('layout has no left sidebar or footer UI', !/mapPanel|roomList|renderRoomList|bottomBar|statusText|artifactStrip|artifactSlot|renderArtifactStrip/.test(index + app));
+check('content has no removed progress copy', !/Prohlédnuté|spodním pásu|artifactStrip/.test(JSON.stringify(content)));
 check('app keeps factual copy out of JS', !/První schod ke vstupu|Zlatá pohřební maska|Howard Carter/.test(app));
 
 const failed = checks.filter((entry) => !entry.ok);

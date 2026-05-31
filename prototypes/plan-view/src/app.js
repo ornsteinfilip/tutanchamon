@@ -135,17 +135,30 @@ function renderPlan() {
   }
 
   for (const hotspot of state.data.hotspots) {
+    const photo = getHotspotPhoto(hotspot);
     const button = document.createElement('button');
     button.type = 'button';
     button.className = 'hotspot';
     button.dataset.hotspotId = hotspot.id;
     button.dataset.kind = hotspot.kind;
     button.dataset.roomId = hotspot.roomId;
-    button.textContent = hotspot.label;
     button.style.setProperty('--x', `${hotspot.x}%`);
     button.style.setProperty('--y', `${hotspot.y}%`);
     button.setAttribute('aria-label', getHotspotTitle(hotspot));
     button.title = getHotspotTitle(hotspot);
+    if (photo?.src) {
+      const image = document.createElement('img');
+      image.className = 'hotspotImage';
+      image.src = photo.src;
+      image.alt = '';
+      image.loading = 'lazy';
+      button.append(image);
+    } else {
+      const fallback = document.createElement('span');
+      fallback.className = 'hotspotFallback';
+      fallback.textContent = hotspot.label;
+      button.append(fallback);
+    }
     button.addEventListener('click', (event) => {
       event.stopPropagation();
       selectHotspot(hotspot.id);
@@ -190,6 +203,7 @@ function selectRoom(roomId) {
     body: room.body,
     facts: room.facts,
     sourceIds: room.sourceIds,
+    photo: resolvePhoto(room),
     relatedPersonIds: []
   });
   markActiveElements();
@@ -211,7 +225,7 @@ function selectHotspot(hotspotId) {
       body: artifact.body,
       facts: artifact.facts,
       sourceIds: artifact.sourceIds,
-      photo: artifact.photo,
+      photo: resolvePhoto(artifact),
       relatedPersonIds: hotspot.relatedPersonIds ?? []
     });
   } else {
@@ -220,6 +234,7 @@ function selectHotspot(hotspotId) {
       body: hotspot.body,
       facts: hotspot.facts,
       sourceIds: hotspot.sourceIds,
+      photo: resolvePhoto(hotspot),
       relatedPersonIds: hotspot.relatedPersonIds ?? []
     });
   }
@@ -233,6 +248,7 @@ function showDefaultDetail() {
     title: detail.title,
     body: detail.body,
     facts: detail.facts,
+    photo: resolvePhoto(detail),
     sourceIds: []
   });
 }
@@ -261,6 +277,7 @@ function renderRelatedPeople(personIds) {
         body: person.body,
         facts: [],
         sourceIds: person.sourceIds,
+        photo: resolvePhoto(person),
         relatedPersonIds: []
       });
     });
@@ -312,7 +329,7 @@ function renderDetailSources(sourceIds, photo) {
 
   if (photo) {
     if (sourceIds.length > 0) els.detailSources.append(document.createTextNode(' · '));
-    els.detailSources.append(document.createTextNode('Fotka: '), buildLink(photo.sourceUrl, 'Commons'));
+    els.detailSources.append(document.createTextNode('Fotka: '), buildLink(photo.sourceUrl, photo.sourceLabel ?? 'Commons'));
   }
 }
 
@@ -330,16 +347,28 @@ function renderSources() {
     els.sourceGrid.append(item);
   }
 
-  for (const artifact of state.data.artifacts) {
-    if (!artifact.photo) continue;
+  const renderedPhotoKeys = new Set();
+  const appendPhotoSource = (titleText, photo) => {
+    if (!photo) return;
+    const key = `${photo.sourceUrl}|${photo.src}`;
+    if (renderedPhotoKeys.has(key)) return;
+    renderedPhotoKeys.add(key);
     const item = document.createElement('article');
     item.className = 'sourceItem';
     const title = document.createElement('strong');
-    title.textContent = `Foto · ${artifact.name}`;
+    title.textContent = titleText;
     const body = document.createElement('p');
-    body.textContent = `${artifact.photo.caption} ${artifact.photo.credit} ${artifact.photo.license}`;
-    item.append(title, body, buildLink(artifact.photo.sourceUrl, 'Stránka souboru'));
+    body.textContent = `${photo.caption} ${photo.credit} ${photo.license}`;
+    item.append(title, body, buildLink(photo.sourceUrl, 'Stránka souboru'));
     els.sourceGrid.append(item);
+  };
+
+  for (const photo of state.data.photos ?? []) {
+    appendPhotoSource(`Foto · ${photo.caption}`, photo);
+  }
+
+  for (const artifact of state.data.artifacts) {
+    appendPhotoSource(`Foto · ${artifact.name}`, resolvePhoto(artifact));
   }
 }
 
@@ -363,8 +392,24 @@ function markActiveElements() {
 
 function getHotspotTitle(hotspot) {
   if (hotspot.kind !== 'artifact') return hotspot.title;
-  const artifact = state.data.artifacts.find((entry) => entry.id === hotspot.artifactId);
+  const artifact = getArtifact(hotspot.artifactId);
   return artifact?.name ?? hotspot.label;
+}
+
+function getHotspotPhoto(hotspot) {
+  if (hotspot.kind !== 'artifact') return resolvePhoto(hotspot);
+  return resolvePhoto(getArtifact(hotspot.artifactId));
+}
+
+function getArtifact(artifactId) {
+  return state.data.artifacts.find((entry) => entry.id === artifactId);
+}
+
+function resolvePhoto(item) {
+  if (!item) return null;
+  if (item.photo) return item.photo;
+  if (!item.photoId) return null;
+  return state.data.photos?.find((photo) => photo.id === item.photoId) ?? null;
 }
 
 function buildLink(url, label) {

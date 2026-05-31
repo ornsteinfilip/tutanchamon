@@ -292,18 +292,40 @@ h1 {
   position: absolute;
   left: var(--x);
   top: var(--y);
-  width: 34px;
+  width: 42px;
   aspect-ratio: 1;
   display: grid;
   place-items: center;
-  border: 2px solid rgba(255, 241, 201, 0.72);
+  padding: 2px;
+  border: 3px solid var(--hotspot-ring, rgba(255, 241, 201, 0.72));
   border-radius: 50%;
+  overflow: hidden;
+  background: #0b0907;
   color: #050403;
   font-size: 0.78rem;
   font-weight: 860;
   transform: translate(-50%, -50%);
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 9px 20px rgba(0, 0, 0, 0.42);
   transition: transform 140ms ease, opacity 140ms ease, filter 140ms ease;
+}
+
+.hotspotImage,
+.hotspotFallback {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.hotspotImage {
+  display: block;
+  object-fit: cover;
+  filter: saturate(0.95) contrast(1.05);
+}
+
+.hotspotFallback {
+  display: grid;
+  place-items: center;
+  background: var(--hotspot-ring, var(--gold));
 }
 
 .hotspot:hover,
@@ -315,19 +337,19 @@ h1 {
 }
 
 .hotspot.is-viewed {
-  box-shadow: 0 0 0 4px rgba(243, 198, 109, 0.16), 0 8px 18px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 0 0 4px rgba(243, 198, 109, 0.18), 0 9px 20px rgba(0, 0, 0, 0.42);
 }
 
 .hotspot[data-kind="artifact"] {
-  background: var(--artifact);
+  --hotspot-ring: var(--artifact);
 }
 
 .hotspot[data-kind="fact"] {
-  background: var(--fact);
+  --hotspot-ring: var(--fact);
 }
 
 .hotspot[data-kind="person"] {
-  background: var(--person);
+  --hotspot-ring: var(--person);
 }
 
 .hotspot.is-hidden {
@@ -545,6 +567,7 @@ noscript {
   }
 
   .hotspot {
-    width: 31px;
+    width: 34px;
+    border-width: 2px;
   }
 }

@@ -12,10 +12,10 @@
     "defaultDetail": {
       "kicker": "Půdorys KV62",
       "title": "Hrobka shora",
+      "photoId": "kv62-schema",
       "body": "KV62 je malá hrobka v Údolí králů. V této variantě ji sleduješ jako jednoduchý 2D plán: vstupní schodiště, chodba, předsíň, annex, pohřební komora a pokladnice. Každý bod otevře faktickou kartu s textem, fotkou a zdroji.",
       "facts": [
-        "Kliknuté předměty se označují ve spodním pásu jako prohlédnuté katalogizační karty.",
-        "Fotky jsou lokální kopie stažené z Wikimedia Commons a v detailu mají odkaz na stránku souboru.",
+        "Klikací body v mapě mají vlastní lokální fotku v kruhové ikoně i v detailním panelu.",
         "Texty, souřadnice místností, body, osoby, zdroje i fotky jsou v tomto JSON souboru."
       ]
     },
@@ -143,6 +143,128 @@
       "accessedAt": "2026-05-25"
     }
   ],
+  "photos": [
+    {
+      "id": "first-step",
+      "src": "./assets/hotspots/first-step.jpg",
+      "alt": "Skalní schodiště vedoucí ke vstupu do KV62",
+      "caption": "Skalní schodiště vedoucí ke vstupu do KV62.",
+      "credit": "Library of Congress / Wikimedia Commons.",
+      "license": "Public domain podle stránky souboru.",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Egypt._Thebes_to_southern_border_of_Egypt._Descent_to_Tutankhaman%27s_tomb_LOC_matpc.17254.jpg",
+      "sourceLabel": "Commons"
+    },
+    {
+      "id": "carter-team",
+      "src": "./assets/hotspots/carter-team.jpg",
+      "alt": "Howard Carter, lord Carnarvon a Lady Evelyn Herbert u vstupu do hrobky",
+      "caption": "Howard Carter, lord Carnarvon a Lady Evelyn Herbert u vstupu do hrobky.",
+      "credit": "Harry Burton / Griffith Institute Archive, přes Wikimedia Commons.",
+      "license": "Public domain podle stránky souboru.",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Howard_Carter,_Lord_Carnarvon_and_Lady_Evelyn_Herbert_at_Tutankhamen%27s_tomb_(cropped).jpg",
+      "sourceLabel": "Commons"
+    },
+    {
+      "id": "sealed-doorway",
+      "src": "./assets/hotspots/sealed-doorway.jpg",
+      "alt": "Neporušená pečeť na jedné ze svatyní v Tutanchamonově hrobce",
+      "caption": "Neporušená pečeť na jedné ze svatyní v Tutanchamonově hrobce.",
+      "credit": "Harry Burton / Wikimedia Commons.",
+      "license": "Public domain podle stránky souboru.",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_unbroken_seal_on_Tutankhamun%E2%80%99s_tomb,_1922.jpg",
+      "sourceLabel": "Commons"
+    },
+    {
+      "id": "kv62-schema",
+      "src": "./assets/hotspots/kv62-schema.jpg",
+      "alt": "3D model schématu hrobky KV62",
+      "caption": "3D model hrobky KV62. Celková délka 30,80 m, plocha 109,83 m² a objem 277,01 m³.",
+      "credit": "Theban Mapping Project, přes StarovekyEgypt.net.",
+      "license": "Licence podle zdrojové stránky.",
+      "sourceUrl": "https://www.starovekyegypt.net/wp-content/uploads/hrobka-kv62.jpg",
+      "sourceLabel": "StarovekyEgypt.net"
+    },
+    {
+      "id": "antechamber-glimpse",
+      "src": "./assets/hotspots/antechamber-glimpse.jpg",
+      "alt": "Jihozápadní roh předsíně Tutanchamonovy hrobky s vozy a nábytkem",
+      "caption": "Jihozápadní roh předsíně s rozebranými vozy a nábytkem.",
+      "credit": "Harry Burton / Wikimedia Commons.",
+      "license": "Public domain podle stránky souboru.",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tutankhamun_tomb_photographs_2_011.jpg",
+      "sourceLabel": "Commons"
+    },
+    {
+      "id": "annex-supplies",
+      "src": "./assets/hotspots/annex-supplies.jpg",
+      "alt": "Drobné předměty z Tutanchamonovy hrobky vystavené jako součást výbavy",
+      "caption": "Drobné předměty z Tutanchamonovy hrobky vystavené jako součást výbavy.",
+      "credit": "Wikimedia Commons, stránka souboru s atribucí autora.",
+      "license": "Licence podle stránky souboru.",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:King_Tutankhamun%27s_tomb_goods_gloves_DSC_0880_(1)_(44795620015).jpg",
+      "sourceLabel": "Commons"
+    },
+    {
+      "id": "tutankhamun-mummy",
+      "src": "./assets/hotspots/tutankhamun-mummy.jpg",
+      "alt": "Mumie Tutanchamona",
+      "caption": "Mumie Tutanchamona.",
+      "credit": "Wikimedia Commons, stránka souboru s atribucí autora.",
+      "license": "Public domain podle stránky souboru.",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mummy_of_Tutankhamun.jpg",
+      "sourceLabel": "Commons"
+    },
+    {
+      "id": "small-mummies",
+      "src": "./assets/hotspots/small-mummies.jpg",
+      "alt": "Repliky mumií dcer Tutanchamona",
+      "caption": "Repliky mumií dcer Tutanchamona z výstavy Tutankhamun: His Tomb and Treasures.",
+      "credit": "Jan Helebrant / Wikimedia Commons.",
+      "license": "CC0 podle stránky souboru.",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tutankhamun%27s_children_-_the_end_of_the_royal_family.jpg",
+      "sourceLabel": "Commons"
+    },
+    {
+      "id": "egyptian-workers",
+      "src": "./assets/hotspots/egyptian-workers.jpg",
+      "alt": "Hussein Abdel Rassoul během práce u výzkumu Tutanchamonovy hrobky",
+      "caption": "Hussein Abdel Rassoul během práce u výzkumu Tutanchamonovy hrobky.",
+      "credit": "Harry Burton / Wikimedia Commons.",
+      "license": "Public domain podle stránky souboru.",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hussein_Abdel_Rassoul_a_water_carrier_on_Howard_Carter_Tutankhamun_tomb_excavation_(cropped).jpg",
+      "sourceLabel": "Commons"
+    },
+    {
+      "id": "ankhesenamon-throne",
+      "src": "./assets/tutankhamun/golden-throne.jpg",
+      "alt": "Zlatý trůn s výjevem Tutanchamona a Anchesenamon",
+      "caption": "Zlatý trůn s výjevem Tutanchamona a Anchesenamon.",
+      "credit": "Wikimedia Commons, stránka souboru s atribucí autora.",
+      "license": "Licence podle stránky souboru.",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Golden_throne_(22674627783).jpg",
+      "sourceLabel": "Commons"
+    },
+    {
+      "id": "burial-chamber",
+      "src": "./assets/tutankhamun/sarcophagus.jpg",
+      "alt": "Pohřební komora KV62 se sarkofágem",
+      "caption": "Pohřební komora KV62 se sarkofágem.",
+      "credit": "Wikimedia Commons, stránka souboru s atribucí autora.",
+      "license": "Licence podle stránky souboru.",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tutankhamun_KV62_burial_chamber_and_sarcophagus.jpg",
+      "sourceLabel": "Commons"
+    },
+    {
+      "id": "treasury-anubis",
+      "src": "./assets/tutankhamun/anubis-shrine.jpg",
+      "alt": "Svatyně s Anubisem z Tutanchamonovy hrobky",
+      "caption": "Svatyně s Anubisem z Tutanchamonovy hrobky.",
+      "credit": "Wikimedia Commons, stránka souboru s atribucí autora.",
+      "license": "Licence podle stránky souboru.",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Anubis-shrine_(cropped).jpg",
+      "sourceLabel": "Commons"
+    }
+  ],
   "rooms": [
     {
       "id": "entrance",
@@ -150,6 +272,7 @@
       "label": "Vstup",
       "title": "Schodiště a první vstup",
       "summary": "Odhalený první schod a zapečetěná přepážka.",
+      "photoId": "first-step",
       "x": 8,
       "y": 43,
       "w": 16,
@@ -167,6 +290,7 @@
       "label": "Chodba",
       "title": "Šikmá vstupní chodba",
       "summary": "Krátká cesta od vstupu k předsíni.",
+      "photoId": "kv62-schema",
       "x": 24,
       "y": 46,
       "w": 26,
@@ -184,6 +308,7 @@
       "label": "Předsíň",
       "title": "Předsíň",
       "summary": "První pohled na nahuštěné poklady.",
+      "photoId": "antechamber-glimpse",
       "x": 50,
       "y": 34,
       "w": 22,
@@ -201,6 +326,7 @@
       "label": "Annex",
       "title": "Annex",
       "summary": "Vedlejší snížená místnost se zásobami.",
+      "photoId": "annex-supplies",
       "x": 50,
       "y": 66,
       "w": 17,
@@ -218,6 +344,7 @@
       "label": "Pohřební komora",
       "title": "Pohřební komora",
       "summary": "Sarkofág, rakve, mumie a maska.",
+      "photoId": "burial-chamber",
       "x": 74,
       "y": 38,
       "w": 16,
@@ -235,6 +362,7 @@
       "label": "Pokladnice",
       "title": "Pokladnice",
       "summary": "Rituální objekty a ochranné předměty.",
+      "photoId": "treasury-anubis",
       "x": 74,
       "y": 62,
       "w": 18,
@@ -259,6 +387,7 @@
       "id": "tutankhamun",
       "name": "Tutanchamon",
       "role": "Mladý faraon 18. dynastie",
+      "photoId": "tutankhamun-mummy",
       "body": "Stal se králem jako dítě, vládl přibližně devět let a zemřel kolem 18-19 let. Jeho dnešní sláva stojí hlavně na mimořádně zachované hrobce.",
       "sourceIds": ["S03", "S04"]
     },
@@ -266,13 +395,15 @@
       "id": "ankhesenamon",
       "name": "Anchesenamon",
       "role": "Královna a manželka Tutanchamona",
-      "body": "Ve hře se objevuje hlavně přes výjev na zlatém trůnu. Její hrob ani mumie nejsou bezpečně identifikované jako součást KV62.",
+      "photoId": "ankhesenamon-throne",
+      "body": "V této verzi se objevuje hlavně přes výjev na zlatém trůnu. Její hrob ani mumie nejsou bezpečně identifikované jako součást KV62.",
       "sourceIds": ["S02", "S06"]
     },
     {
       "id": "carter",
       "name": "Howard Carter",
       "role": "Vedoucí archeologického výzkumu",
+      "photoId": "carter-team",
       "body": "Britský archeolog, který vedl tým při odkrytí a dokumentaci KV62 v roce 1922.",
       "sourceIds": ["S01", "S02"]
     },
@@ -280,6 +411,7 @@
       "id": "carnarvon",
       "name": "Lord Carnarvon",
       "role": "Financování expedice",
+      "photoId": "carter-team",
       "body": "Mecenáš Carterova výzkumu v Údolí králů.",
       "sourceIds": ["S01"]
     },
@@ -287,6 +419,7 @@
       "id": "egyptian-workers",
       "name": "Egyptští dělníci a předáci expedice",
       "role": "Každodenní práce v terénu",
+      "photoId": "egyptian-workers",
       "body": "Objev nebyl jen práce Cartera. Na odkrývání a manipulaci s materiálem se podíleli místní pracovníci a předáci.",
       "sourceIds": ["S01", "S02"]
     }
@@ -582,6 +715,7 @@
       "y": 49,
       "label": "i",
       "title": "První schod",
+      "photoId": "first-step",
       "body": "První schod ke vstupu do KV62 byl nalezen 4. listopadu 1922. V nové variantě ho jen dokumentujeme kliknutím, bez pohybu postavy.",
       "facts": ["Schodiště KV62 mělo 16 skalních stupňů."],
       "sourceIds": ["S01", "S16"],
@@ -595,6 +729,7 @@
       "y": 39,
       "label": "C",
       "title": "Carterův tým",
+      "photoId": "carter-team",
       "body": "Hrobku objevil tým Howarda Cartera s podporou lorda Carnarvona. Práce v terénu stála také na egyptských dělnících a předácích.",
       "facts": ["Objev byl týmová a dokumentační práce, ne osamělý dobrodružný výkon."],
       "sourceIds": ["S01", "S02"],
@@ -608,6 +743,7 @@
       "y": 50,
       "label": "i",
       "title": "První zapečetěný vstup",
+      "photoId": "sealed-doorway",
       "body": "U paty schodiště byla první zapečetěná přepážka. V půdorysu je vidět jako hranice mezi vstupem a chodbou.",
       "facts": ["Pečeti a přepážky jsou důležité pro pochopení stavu hrobky při objevu."],
       "sourceIds": ["S17"]
@@ -620,8 +756,11 @@
       "y": 39,
       "label": "i",
       "title": "Malá, ale mimořádná",
+      "photoId": "kv62-schema",
       "body": "KV62 nebyla obrovská královská hrobka. Je slavná hlavně proto, že se dochovala mimořádně neporušená a plná nálezů.",
       "facts": [
+        "3D schéma uvádí celkovou délku 30,80 m, celkovou plochu 109,83 m² a celkový objem 277,01 m³.",
+        "Maximální výška je 3,68 m, minimální šířka 0,66 m a maximální šířka 7,86 m.",
         "Větší hrobky významnějších faraonů mohly být rozsáhlejší, ale často byly více vykradené.",
         "Půdorys tady záměrně ukazuje kompaktní rozsah KV62."
       ],
@@ -635,6 +774,7 @@
       "y": 50,
       "label": "i",
       "title": "První pohled do předsíně",
+      "photoId": "antechamber-glimpse",
       "body": "Dne 26. listopadu 1922 Carter nahlédl do předsíně a uviděl mimořádné množství předmětů.",
       "facts": ["Slavný dojem z prvního pohledu vychází z nahuštěného a téměř nedotčeného prostoru."],
       "sourceIds": ["S01", "S02"],
@@ -653,6 +793,7 @@
       "y": 66,
       "label": "i",
       "title": "Nízký vstup do annexu",
+      "photoId": "antechamber-glimpse",
       "body": "Annex byl přístupný nízkým bočním vstupem z předsíně. Ve 2D půdorysu je to krátká odbočka dolů.",
       "facts": ["Tahle odbočka pomáhá pochopit, že KV62 není dlouhý lineární chrám, ale malý kompaktní soubor místností."],
       "sourceIds": ["S18"]
@@ -665,6 +806,7 @@
       "y": 78,
       "label": "i",
       "title": "Zásoby a každodennost",
+      "photoId": "annex-supplies",
       "body": "V annexu byly zásoby, nádoby, koše a drobné praktické předměty. Hrobka tak nepůsobí jen jako místo zlata, ale i jako výbava pro posmrtný život.",
       "facts": ["Drobné předměty jsou důležité pro pochopení každodennosti a rituálních představ."],
       "sourceIds": ["S18"]
@@ -679,6 +821,7 @@
       "y": 39,
       "label": "T",
       "title": "Mladý král a nejistá smrt",
+      "photoId": "tutankhamun-mummy",
       "body": "Tutanchamon zemřel mladý, kolem 18-19 let. Přesná příčina smrti není jistá; interpretace je potřeba formulovat opatrně.",
       "facts": ["Jeho sláva není dána dlouhou vládou, ale zachováním hrobky a pozdějším kulturním dopadem objevu."],
       "sourceIds": ["S03", "S04"],
@@ -699,6 +842,7 @@
       "y": 75,
       "label": "i",
       "title": "Dvě malé mumie",
+      "photoId": "small-mummies",
       "body": "V KV62 byly dvě malé mumie plodů nebo novorozenců, často vykládané jako Tutanchamonovy dcery. Nejde o ostatky dospělé královny Anchesenamon.",
       "facts": [
         "Tento bod opravuje časté zjednodušení: v hrobce nejsou doložené ostatky dospělé královny.",
