@@ -91,7 +91,8 @@ check('intro entry uses dedicated button', /id="introEnter"/.test(index) && /int
 check('topbar title links back to intro', /id="appTitleLink" href="#intro"/.test(index) && /appTitleLink\.addEventListener\('click'/.test(app) && /function showIntro\(\)/.test(app) && /classList\.add\('is-splash'\)/.test(app));
 check('intro removed drawn entrance elements', !/class="cliffWall"|class="tombEntrance"|class="stairCut"|class="sun"/.test(index));
 check('detail panel has no fact list UI', !/factList|renderFacts/.test(index + app));
-check('detail source label opens source modal', /buildSourcesIndexLink\('Zdroje:'\)/.test(app) && /href = '#sourcesOverlay'/.test(app) && /openSources\(\)/.test(app));
+check('detail source label is plain text', /buildSourceLabel\('Zdroje:'\)/.test(app) && /className = 'sourceLabel'/.test(app) && !/buildSourcesIndexLink|sourceIndexLink|href = '#sourcesOverlay'/.test(app + styles));
+check('header sources button opens source modal', /id="sourcesButton"/.test(index) && /sourcesButton\.addEventListener\('click', openSources\)/.test(app));
 check('photo captions use concise linked source labels', /photo\.caption} Zdroj:/.test(app) && /getPhotoSourceLabel\(photo\)/.test(app) && !/Stránka fotky|photo\.credit|photo\.license/.test(app));
 check('photo metadata omits attribution prose', !/credit|license|stránka souboru|atribucí autora|Licence podle|Public domain podle|CC0 podle|sourceLabel": "Commons"/.test(JSON.stringify(content)));
 check('sources modal is presentation style', Array.isArray(content.sourcePresentation?.groups) && content.sourcePresentation.groups.length >= 3 && /sourcePresentation/.test(app + styles) && /buildSourceLinkLine/.test(app) && !/sourceItem|repeat\(auto-fit/.test(app + styles));

@@ -353,7 +353,7 @@ function renderDetailSources(sourceIds, photo) {
   }
 
   if (sourceIds.length > 0) {
-    els.detailSources.append(buildSourcesIndexLink('Zdroje:'), document.createTextNode(' '));
+    els.detailSources.append(buildSourceLabel('Zdroje:'), document.createTextNode(' '));
     appendDetailSourceLinks(els.detailSources, sourceIds);
   }
 
@@ -545,16 +545,11 @@ function updateRouteHash(type, id) {
   history.pushState(null, '', nextHash);
 }
 
-function buildSourcesIndexLink(label) {
-  const link = document.createElement('a');
-  link.href = '#sourcesOverlay';
-  link.className = 'sourceIndexLink';
-  link.textContent = label;
-  link.addEventListener('click', (event) => {
-    event.preventDefault();
-    openSources();
-  });
-  return link;
+function buildSourceLabel(label) {
+  const span = document.createElement('span');
+  span.className = 'sourceLabel';
+  span.textContent = label;
+  return span;
 }
 
 function buildLink(url, label) {
