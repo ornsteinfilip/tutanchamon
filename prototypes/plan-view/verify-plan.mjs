@@ -63,19 +63,24 @@ check('tutankhamun person uses high quality mask photo', photoCatalog.get(conten
 check('all hotspots have icon and sidebar photos', content.hotspots.every((hotspot) => localPhotoExists(resolveHotspotPhoto(hotspot))));
 check('people linked from details are direct map hotspots', ['carter', 'carnarvon', 'egyptian-workers', 'tutankhamun', 'ankhesenamon'].every((personId) => content.hotspots.some((hotspot) => hotspot.personId === personId)));
 check('hotspots avoid room title corners', [
-  ['first-step', 12, 50],
-  ['howard-carter', 13, 32],
-  ['lord-carnarvon', 17, 31],
-  ['egyptian-workers-hotspot', 20, 35],
-  ['sealed-doorway', 24, 47],
+  ['first-step', 10, 43],
+  ['howard-carter', 40, 44],
+  ['lord-carnarvon', 46, 44],
+  ['egyptian-workers-hotspot', 52, 44],
+  ['sealed-doorway', 19, 43],
   ['ankhesenamon-person', 72, 34],
   ['golden-throne', 69, 47],
-  ['annex-doorway', 58, 66],
+  ['annex-doorway', 56, 68],
   ['senet', 51, 77],
   ['young-king-death', 84, 69],
   ['anubis-shrine', 86, 31],
-  ['canopic-equipment', 92, 32]
+  ['canopic-equipment', 92, 32],
+  ['kv62-comparison', 56, 44]
 ].every(([id, x, y]) => hotspotMap.get(id)?.x === x && hotspotMap.get(id)?.y === y));
+check('all hotspot centers are inside their assigned rooms', content.hotspots.every((hotspot) => {
+  const room = roomMap.get(hotspot.roomId);
+  return room && hotspot.x > room.x && hotspot.x < room.x + room.w && hotspot.y > room.y && hotspot.y < room.y + room.h;
+}));
 check('plan topology follows attached KV62 floor plan', roomMap.get('corridor')?.x > roomMap.get('entrance')?.x && roomMap.get('antechamber')?.x > roomMap.get('corridor')?.x && roomMap.get('burial')?.y > roomMap.get('antechamber')?.y && roomMap.get('annex')?.x < roomMap.get('burial')?.x && Math.abs((roomMap.get('annex')?.y ?? 0) - (roomMap.get('burial')?.y ?? 0)) < 4 && roomMap.get('treasury')?.x > roomMap.get('antechamber')?.x && roomMap.get('treasury')?.y < roomMap.get('antechamber')?.y);
 check('room labels match attached floor plan terms', roomMap.get('entrance')?.label === 'Schodiště' && roomMap.get('corridor')?.label === 'Sestupná chodba' && roomMap.get('annex')?.label === 'Sklad' && roomMap.get('treasury')?.label === 'Boční komora');
 check('hotspot renderer uses thumbnail images', /hotspotImage/.test(app) && !/button\.textContent = hotspot\.label/.test(app));
