@@ -59,6 +59,7 @@ check('shared photo catalog has local files', Array.isArray(content.photos) && c
 check('shared photo catalog has source pages', content.photos.every((photo) => photo.sourceUrl?.startsWith('https://')));
 check('all rooms have sidebar photos', content.rooms.every((room) => localPhotoExists(resolvePhoto(room))));
 check('all people have sidebar photos', content.people.every((person) => localPhotoExists(resolvePhoto(person))));
+check('tutankhamun person uses high quality mask photo', photoCatalog.get(content.people.find((person) => person.id === 'tutankhamun')?.photoId)?.src === './assets/tutankhamun/golden-mask.jpg');
 check('all hotspots have icon and sidebar photos', content.hotspots.every((hotspot) => localPhotoExists(resolveHotspotPhoto(hotspot))));
 check('people linked from details are direct map hotspots', ['carter', 'carnarvon', 'egyptian-workers', 'tutankhamun', 'ankhesenamon'].every((personId) => content.hotspots.some((hotspot) => hotspot.personId === personId)));
 check('hotspots avoid room title corners', [

@@ -241,11 +241,11 @@
       "sourceLabel": "Wikimedia Commons"
     },
     {
-      "id": "tutankhamun-mummy",
-      "src": "./assets/hotspots/tutankhamun-mummy.jpg",
-      "alt": "Mumie Tutanchamona",
-      "caption": "Mumie Tutanchamona.",
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mummy_of_Tutankhamun.jpg",
+      "id": "tutankhamun-mask",
+      "src": "./assets/tutankhamun/golden-mask.jpg",
+      "alt": "Zlatá pohřební maska Tutanchamona",
+      "caption": "Zlatá pohřební maska Tutanchamona.",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Golden_mask_of_Tutankhamun.jpg",
       "sourceLabel": "Wikimedia Commons"
     },
     {
@@ -454,7 +454,7 @@
       "id": "tutankhamun",
       "name": "Tutanchamon",
       "role": "Mladý faraon 18. dynastie",
-      "photoId": "tutankhamun-mummy",
+      "photoId": "tutankhamun-mask",
       "body": "Stal se králem jako dítě, vládl přibližně devět let a zemřel kolem 18-19 let. Jeho dnešní sláva stojí hlavně na mimořádně zachované hrobce.",
       "sourceIds": [
         "S03",
