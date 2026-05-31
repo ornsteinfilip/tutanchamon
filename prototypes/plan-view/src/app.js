@@ -12,7 +12,6 @@ const els = {
   introMap: document.getElementById('introMap'),
   introTitle: document.getElementById('introTitle'),
   introEnter: document.getElementById('introEnter'),
-  modeEyebrow: document.getElementById('modeEyebrow'),
   appTitle: document.getElementById('appTitle'),
   filterTabs: document.getElementById('filterTabs'),
   planCanvas: document.getElementById('planCanvas'),
@@ -56,7 +55,6 @@ function applyMeta() {
     els.introMap.src = meta.intro.mapUrl;
   }
   els.introEnter.textContent = meta.intro.enterLabel ?? 'Vstoupit';
-  els.modeEyebrow.textContent = meta.variantTitle;
   els.appTitle.textContent = meta.title;
 }
 
