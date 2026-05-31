@@ -60,20 +60,21 @@ check('all people have sidebar photos', content.people.every((person) => localPh
 check('all hotspots have icon and sidebar photos', content.hotspots.every((hotspot) => localPhotoExists(resolveHotspotPhoto(hotspot))));
 check('people linked from details are direct map hotspots', ['carter', 'carnarvon', 'egyptian-workers', 'tutankhamun', 'ankhesenamon'].every((personId) => content.hotspots.some((hotspot) => hotspot.personId === personId)));
 check('hotspots avoid room title corners', [
-  ['first-step', 13, 62],
-  ['howard-carter', 17, 47],
-  ['lord-carnarvon', 20, 43],
-  ['egyptian-workers-hotspot', 21, 51],
-  ['sealed-doorway', 25, 61],
-  ['ankhesenamon-person', 62, 47],
-  ['golden-throne', 58, 54],
-  ['annex-doorway', 52, 70],
-  ['senet', 52, 78],
-  ['young-king-death', 80, 29],
-  ['anubis-shrine', 86, 38],
-  ['canopic-equipment', 92, 39]
+  ['first-step', 12, 50],
+  ['howard-carter', 13, 32],
+  ['lord-carnarvon', 17, 31],
+  ['egyptian-workers-hotspot', 20, 35],
+  ['sealed-doorway', 24, 47],
+  ['ankhesenamon-person', 72, 29],
+  ['golden-throne', 69, 47],
+  ['annex-doorway', 58, 66],
+  ['senet', 51, 77],
+  ['young-king-death', 80, 64],
+  ['anubis-shrine', 86, 31],
+  ['canopic-equipment', 92, 32]
 ].every(([id, x, y]) => hotspotMap.get(id)?.x === x && hotspotMap.get(id)?.y === y));
-check('plan topology follows KV62 model', roomMap.get('corridor')?.x > roomMap.get('entrance')?.x && roomMap.get('antechamber')?.x > roomMap.get('corridor')?.x && roomMap.get('annex')?.y > roomMap.get('antechamber')?.y && roomMap.get('annex')?.x < roomMap.get('antechamber')?.x && roomMap.get('burial')?.y < roomMap.get('antechamber')?.y && roomMap.get('treasury')?.x > roomMap.get('burial')?.x && Math.abs((roomMap.get('treasury')?.y ?? 0) - (roomMap.get('burial')?.y ?? 0)) < 8);
+check('plan topology follows attached KV62 floor plan', roomMap.get('corridor')?.x > roomMap.get('entrance')?.x && roomMap.get('antechamber')?.x > roomMap.get('corridor')?.x && roomMap.get('burial')?.y > roomMap.get('antechamber')?.y && roomMap.get('annex')?.x < roomMap.get('burial')?.x && Math.abs((roomMap.get('annex')?.y ?? 0) - (roomMap.get('burial')?.y ?? 0)) < 4 && roomMap.get('treasury')?.x > roomMap.get('antechamber')?.x && roomMap.get('treasury')?.y < roomMap.get('antechamber')?.y);
+check('room labels match attached floor plan terms', roomMap.get('entrance')?.label === 'Schodiště' && roomMap.get('corridor')?.label === 'Sestupná chodba' && roomMap.get('annex')?.label === 'Sklad' && roomMap.get('treasury')?.label === 'Boční komora');
 check('hotspot renderer uses thumbnail images', /hotspotImage/.test(app) && !/button\.textContent = hotspot\.label/.test(app));
 check('intro keeps title and entry button text only', content.meta?.intro?.title === 'Hrobka Tutanchamona' && content.meta?.intro?.enterLabel === 'Vstoupit' && !content.meta.intro.kicker && !content.meta.intro.text);
 check('intro uses full-screen map iframe instead of photo', content.meta?.intro?.mapUrl === 'https://mapy.com/s/gekudunaku' && /id="introMap"/.test(index) && /introMap\.src = meta\.intro\.mapUrl/.test(app) && !/introSky|--intro-photo|meta\.intro\.photo|tomb-entrance/.test(index + app + JSON.stringify(content)));
