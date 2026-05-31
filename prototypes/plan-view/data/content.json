@@ -799,6 +799,27 @@
         "caption": "Vějíř z Tutanchamonovy hrobky.",
         "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tutankhamun%E2%80%99s_Fan.jpg"
       }
+    },
+    {
+      "id": "A15",
+      "icon": "MM",
+      "name": "Dvě malé mumie",
+      "roomId": "treasury",
+      "body": "V KV62 byly dvě malé mumie plodů nebo novorozenců, často vykládané jako Tutanchamonovy dcery. Nález patří k citlivým částem pohřební výbavy a rodinného kontextu.",
+      "facts": [
+        "Bezpečně doložené ostatky dospělé královny Anchesenamon v KV62 chybí.",
+        "Anchesenamon připomíná především výjev na trůnu a rodinný kontext Tutanchamonovy vlády."
+      ],
+      "sourceIds": [
+        "S02",
+        "S11"
+      ],
+      "photo": {
+        "src": "./assets/hotspots/small-mummies.jpg",
+        "alt": "Repliky mumií dcer Tutanchamona",
+        "caption": "Repliky mumií dcer Tutanchamona z výstavy Tutankhamun: His Tomb and Treasures.",
+        "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tutankhamun%27s_children_-_the_end_of_the_royal_family.jpg"
+      }
     }
   ],
   "hotspots": [
@@ -1049,22 +1070,12 @@
     },
     {
       "id": "small-mummies",
-      "kind": "fact",
+      "kind": "artifact",
       "roomId": "treasury",
       "x": 93,
       "y": 38,
-      "label": "i",
-      "title": "Dvě malé mumie",
-      "photoId": "small-mummies",
-      "body": "V KV62 byly dvě malé mumie plodů nebo novorozenců, často vykládané jako Tutanchamonovy dcery. Bezpečně doložené ostatky dospělé královny Anchesenamon v KV62 chybí.",
-      "facts": [
-        "Nález patří k citlivým částem pohřební výbavy a rodinného kontextu.",
-        "Anchesenamon připomíná především výjev na trůnu a rodinný kontext Tutanchamonovy vlády."
-      ],
-      "sourceIds": [
-        "S02",
-        "S11"
-      ]
+      "label": "MM",
+      "artifactId": "A15"
     }
   ]
 }
