@@ -16,6 +16,8 @@ const workspaceBlock = styles.match(/\.workspace\s*{[^}]*}/s)?.[0] ?? '';
 const detailPanelBlock = styles.match(/\.detailPanel\s*{[^}]*}/s)?.[0] ?? '';
 const planCanvasBlock = styles.match(/\.planCanvas\s*{[^}]*}/s)?.[0] ?? '';
 const photoFrameImageBlock = styles.match(/\.photoFrame img\s*{[^}]*}/s)?.[0] ?? '';
+const hotspotBlock = styles.match(/\.hotspot\s*{[^}]*}/s)?.[0] ?? '';
+const smallHotspotBlock = styles.match(/@media \(max-width: 620px\)\s*{[\s\S]*?\.hotspot\s*{[^}]*}/)?.[0] ?? '';
 const hotspotMap = new Map((content.hotspots ?? []).map((hotspot) => [hotspot.id, hotspot]));
 const roomMap = new Map((content.rooms ?? []).map((room) => [room.id, room]));
 const checks = [];
@@ -97,6 +99,7 @@ check('layout has no left sidebar or footer UI', !/mapPanel|roomList|renderRoomL
 check('plan canvas is plain black without frame grid', /background:\s*#000;/.test(planCanvasBlock) && !/border:|border-radius:|background-size|box-shadow|linear-gradient/.test(planCanvasBlock));
 check('detail sidebar can scroll in fixed viewport', /height:\s*100vh;/.test(workspaceBlock) && /overflow:\s*auto;/.test(detailPanelBlock) && /max-height:\s*100%;/.test(detailPanelBlock) && !/100vh\s*-\s*108px/.test(planCanvasBlock));
 check('sidebar photos keep original aspect ratio', /height:\s*auto;/.test(photoFrameImageBlock) && !/aspect-ratio|object-fit:\s*cover/.test(photoFrameImageBlock));
+check('map bubbles use fixed square dimensions', /--hotspot-size:\s*42px;/.test(hotspotBlock) && /width:\s*var\(--hotspot-size\);/.test(hotspotBlock) && /height:\s*var\(--hotspot-size\);/.test(hotspotBlock) && /min-width:\s*var\(--hotspot-size\);/.test(hotspotBlock) && /min-height:\s*var\(--hotspot-size\);/.test(hotspotBlock) && /--hotspot-size:\s*34px;/.test(smallHotspotBlock) && !/aspect-ratio:\s*1;/.test(hotspotBlock));
 check('content has no removed progress copy', !/Prohlédnuté|spodním pásu|artifactStrip/.test(JSON.stringify(content)));
 check('default detail has no implementation copy', !/Klikací body v mapě|Texty, souřadnice|JSON souboru/.test(JSON.stringify(content.meta?.defaultDetail ?? {})));
 check('content avoids source meta commentary', !/Zdroje jsou zvolené|práce nestála|obecném shrnutí|U snímků je důležité|dohledatelné autorství|původ a licence|v této variantě|v této verzi|mechanismu aplikace|content\.json|JSON souboru|není [^.!?]+, ale/.test(JSON.stringify(content)));
