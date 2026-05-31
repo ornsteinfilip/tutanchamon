@@ -876,17 +876,6 @@
       "detailRoomId": "corridor"
     },
     {
-      "id": "first-glimpse",
-      "kind": "fact",
-      "roomId": "antechamber",
-      "x": 63,
-      "y": 48,
-      "label": "i",
-      "title": "Předsíň",
-      "photoId": "antechamber-glimpse",
-      "detailRoomId": "antechamber"
-    },
-    {
       "id": "ankhesenamon-person",
       "kind": "person",
       "roomId": "antechamber",
