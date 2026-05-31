@@ -502,9 +502,7 @@ h1 {
   max-width: 820px;
 }
 
-.sourceIntro,
-.sourceSection p,
-.sourceNote {
+.sourceLinks {
   color: rgba(241, 223, 181, 0.78);
   font-size: 0.9rem;
   line-height: 1.5;
@@ -522,18 +520,9 @@ h1 {
   letter-spacing: 0;
 }
 
-.sourceLinks {
-  margin-top: 7px;
-}
-
 .sourceLinks a {
+  display: inline;
   font-size: 0.84rem;
-}
-
-.sourceNote {
-  margin-top: 18px;
-  padding-top: 12px;
-  border-top: 1px solid var(--line);
 }
 
 noscript {

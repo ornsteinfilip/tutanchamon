@@ -13,33 +13,27 @@
       "body": "3D model ukazuje kompaktní tvar hrobky KV62 v Údolí králů. Hrobku tvoří vstupní schodiště, chodba, předsíň, annex, pohřební komora a pokladnice. Její význam vychází hlavně z mimořádně zachované pohřební výbavy."
     },
     "statusIntro": "Tlačítkem vstoupit",
-    "statusReady": "Klikni na bod v půdorysu. Předměty otevřou fotku a katalogizační kartu.",
-    "sourceNote": "Historické zdroje a zdroje fotografií jsou uvedené samostatně."
+    "statusReady": "Klikni na bod v půdorysu. Předměty otevřou fotku a katalogizační kartu."
   },
   "sourcePresentation": {
     "title": "Použité zdroje",
-    "intro": "Přehled zdrojů k hrobce KV62, objevu v roce 1922, rozvržení místností, Tutanchamonovi a vybraným předmětům.",
     "groups": [
       {
         "title": "Archeologický a prostorový základ",
-        "body": "Griffith Institute uchovává Carterovu dokumentaci a fotografie z odkrývání KV62. Tutankhamun Spatial Archive a Theban Mapping Project popisují rozměry a prostor hrobky.",
         "sourceIds": ["S01", "S02", "S10", "S11", "S16", "S17", "S18", "S20"]
       },
       {
         "title": "Výklad předmětů a historický kontext",
-        "body": "Muzejní katalogy a odborné texty uvádějí popisy masky, rakví, trůnu, vozů, dýky a dalších předmětů. Texty k Tutanchamonovi zachycují mladý věk, rodinné souvislosti a stav výzkumu.",
         "sourceIds": ["S03", "S04", "S05", "S06", "S07", "S08", "S09", "S12"]
       },
       {
         "title": "Fotografie a obrazový materiál",
-        "body": "Obrazový materiál pochází z Wikimedia Commons, muzejních databází a schématu KV62 podle Theban Mapping Project.",
         "links": [
           { "label": "Wikimedia Commons: KV62", "url": "https://commons.wikimedia.org/wiki/Category:KV62" },
           { "label": "3D schéma KV62 podle Theban Mapping Project", "url": "https://www.starovekyegypt.net/wp-content/uploads/hrobka-kv62.jpg" }
         ]
       }
-    ],
-    "note": "Zkratky S01-S20 odpovídají položkám v seznamu zdrojů."
+    ]
   },
   "filters": [
     { "id": "all", "label": "Vše" },
@@ -313,10 +307,11 @@
       "y": 46,
       "w": 26,
       "h": 8,
-      "body": "Chodba v KV62 je krátká a sestupuje od vstupu k předsíni. Rozměry hrobky jsou oproti některým rozsáhlejším královským hrobkám skromné.",
+      "body": "Chodba v KV62 je krátká a sestupuje od vstupu k předsíni. KV62 patří k menším královským hrobkám a proslavila ji mimořádně zachovaná výbava.",
       "facts": [
-        "KV62 působí spíš jako kompaktní hrobka s několika místnostmi.",
-        "Význam hrobky vychází hlavně ze zachování a množství nálezů."
+        "3D schéma uvádí celkovou délku 30,80 m, celkovou plochu 109,83 m² a celkový objem 277,01 m³.",
+        "Maximální výška je 3,68 m, minimální šířka 0,66 m a maximální šířka 7,86 m.",
+        "Kompaktní půdorys vysvětluje husté rozmístění předmětů."
       ],
       "sourceIds": ["S05"]
     },
@@ -773,16 +768,9 @@
       "x": 36,
       "y": 39,
       "label": "i",
-      "title": "Malá, ale mimořádná",
+      "title": "Šikmá vstupní chodba",
       "photoId": "kv62-schema",
-      "body": "KV62 patří k menším královským hrobkám. Proslavila ji mimořádně zachovaná výbava a stav nálezu.",
-      "facts": [
-        "3D schéma uvádí celkovou délku 30,80 m, celkovou plochu 109,83 m² a celkový objem 277,01 m³.",
-        "Maximální výška je 3,68 m, minimální šířka 0,66 m a maximální šířka 7,86 m.",
-        "Mnohé rozsáhlejší královské hrobky byly ve starověku více vykradené.",
-        "Kompaktní půdorys vysvětluje husté rozmístění předmětů."
-      ],
-      "sourceIds": ["S05"]
+      "detailRoomId": "corridor"
     },
     {
       "id": "first-glimpse",
@@ -791,12 +779,9 @@
       "x": 50,
       "y": 50,
       "label": "i",
-      "title": "První pohled do předsíně",
+      "title": "Předsíň",
       "photoId": "antechamber-glimpse",
-      "body": "Dne 26. listopadu 1922 Carter nahlédl do předsíně a uviděl mimořádné množství předmětů.",
-      "facts": ["Slavný dojem z prvního pohledu vychází z nahuštěného a téměř nedotčeného prostoru."],
-      "sourceIds": ["S01", "S02"],
-      "relatedPersonIds": ["carter"]
+      "detailRoomId": "antechamber"
     },
     { "id": "golden-throne", "kind": "artifact", "roomId": "antechamber", "x": 59, "y": 46, "label": "TR", "artifactId": "A06" },
     { "id": "chariot", "kind": "artifact", "roomId": "antechamber", "x": 64, "y": 37, "label": "VU", "artifactId": "A07" },
@@ -823,11 +808,9 @@
       "x": 60,
       "y": 80,
       "label": "i",
-      "title": "Zásoby a každodennost",
+      "title": "Annex",
       "photoId": "annex-supplies",
-      "body": "V annexu byly zásoby, nádoby, koše a drobné praktické předměty. Výbava hrobky zahrnovala zlato, rituální předměty i zásoby pro posmrtný život.",
-      "facts": ["Drobné předměty ukazují každodennost i rituální představy."],
-      "sourceIds": ["S18"]
+      "detailRoomId": "annex"
     },
     { "id": "senet", "kind": "artifact", "roomId": "annex", "x": 56, "y": 74, "label": "SE", "artifactId": "A10" },
     { "id": "model-boat", "kind": "artifact", "roomId": "annex", "x": 64, "y": 76, "label": "LO", "artifactId": "A12" },

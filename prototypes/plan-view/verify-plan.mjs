@@ -69,6 +69,9 @@ check('intro removed drawn entrance elements', !/class="cliffWall"|class="tombEn
 check('detail panel has no fact list UI', !/factList|renderFacts/.test(index + app));
 check('detail source label opens source modal', /buildSourcesIndexLink\('Zdroje:'\)/.test(app) && /href = '#sourcesOverlay'/.test(app) && /openSources\(\)/.test(app));
 check('sources modal is presentation style', Array.isArray(content.sourcePresentation?.groups) && content.sourcePresentation.groups.length >= 3 && /sourcePresentation/.test(app + styles) && /buildSourceLinkLine/.test(app) && !/sourceItem|repeat\(auto-fit/.test(app + styles));
+check('sources modal has links without explanatory paragraphs', !content.sourcePresentation?.intro && !content.sourcePresentation?.note && content.sourcePresentation.groups.every((group) => !group.body) && !/sourceIntro|sourceNote|group\.body/.test(app + styles));
+check('frontend hides numeric source shortcuts', !/\$\{source\.id\}:|buildLink\(source\.url, source\.id\)/.test(app));
+check('room overview hotspots share room details', hotspotMap.get('kv62-comparison')?.detailRoomId === 'corridor' && hotspotMap.get('first-glimpse')?.detailRoomId === 'antechamber' && hotspotMap.get('storage-supplies')?.detailRoomId === 'annex' && /hotspot\.detailRoomId/.test(app));
 check('topbar has no variant eyebrow', !/modeEyebrow|variantTitle|Půdorysná prohlídka/.test(index + app + JSON.stringify(content)));
 check('detail panel has no kicker or subtitle UI', !/detailKicker|detailMeta|class="meta"|artifact\.short|getRoomTitle|Předsíň plná výbavy|Vozy a jejich části v předsíni/.test(index + app + JSON.stringify(content)));
 check('layout has no left sidebar or footer UI', !/mapPanel|roomList|renderRoomList|bottomBar|statusText|artifactStrip|artifactSlot|renderArtifactStrip/.test(index + app));

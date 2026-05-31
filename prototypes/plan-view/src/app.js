@@ -195,19 +195,12 @@ function applyPlanBox(element, item) {
 }
 
 function selectRoom(roomId) {
-  const room = state.data.rooms.find((entry) => entry.id === roomId);
+  const room = getRoom(roomId);
   if (!room) return;
 
   state.activeRoomId = room.id;
   state.activeHotspotId = null;
-  showDetail({
-    title: room.title,
-    body: room.body,
-    facts: room.facts,
-    sourceIds: room.sourceIds,
-    photo: resolvePhoto(room),
-    relatedPersonIds: []
-  });
+  showRoomDetail(room);
   markActiveElements();
 }
 
@@ -219,7 +212,11 @@ function selectHotspot(hotspotId) {
   state.activeRoomId = hotspot.roomId;
   state.viewedHotspots.add(hotspot.id);
 
-  if (hotspot.kind === 'artifact') {
+  if (hotspot.detailRoomId) {
+    const room = getRoom(hotspot.detailRoomId);
+    if (!room) return;
+    showRoomDetail(room, hotspot.relatedPersonIds ?? []);
+  } else if (hotspot.kind === 'artifact') {
     const artifact = state.data.artifacts.find((entry) => entry.id === hotspot.artifactId);
     if (!artifact) return;
     showDetail({
@@ -242,6 +239,17 @@ function selectHotspot(hotspotId) {
   }
 
   markActiveElements();
+}
+
+function showRoomDetail(room, relatedPersonIds = []) {
+  showDetail({
+    title: room.title,
+    body: room.body,
+    facts: room.facts,
+    sourceIds: room.sourceIds,
+    photo: resolvePhoto(room),
+    relatedPersonIds
+  });
 }
 
 function showDefaultDetail() {
@@ -315,18 +323,11 @@ function renderPhoto(photo) {
 function renderDetailSources(sourceIds, photo) {
   els.detailSources.replaceChildren();
   if (sourceIds.length === 0 && !photo) {
-    els.detailSources.textContent = state.data.meta.sourceNote;
     return;
   }
 
   if (sourceIds.length > 0) {
-    els.detailSources.append(buildSourcesIndexLink('Zdroje:'), document.createTextNode(' '));
-    sourceIds.forEach((sourceId, index) => {
-      const source = state.data.sources.find((entry) => entry.id === sourceId);
-      if (!source) return;
-      if (index > 0) els.detailSources.append(document.createTextNode(', '));
-      els.detailSources.append(buildLink(source.url, source.id));
-    });
+    els.detailSources.append(buildSourcesIndexLink('Zdroje:'));
   }
 
   if (photo) {
@@ -343,38 +344,24 @@ function renderSources() {
 
   els.sourceGrid.className = 'sourcePresentation';
 
-  const intro = document.createElement('p');
-  intro.className = 'sourceIntro';
-  intro.textContent = presentation.intro;
-  els.sourceGrid.append(intro);
-
   for (const group of presentation.groups ?? []) {
     const section = document.createElement('section');
     section.className = 'sourceSection';
     const title = document.createElement('h3');
     title.textContent = group.title;
-    const body = document.createElement('p');
-    body.textContent = group.body;
-    section.append(title, body, buildSourceLinkLine(group));
+    section.append(title, buildSourceLinkLine(group));
     els.sourceGrid.append(section);
-  }
-
-  if (presentation.note) {
-    const note = document.createElement('p');
-    note.className = 'sourceNote';
-    note.textContent = presentation.note;
-    els.sourceGrid.append(note);
   }
 }
 
 function buildSourceLinkLine(group) {
-  const line = document.createElement('p');
+  const line = document.createElement('div');
   line.className = 'sourceLinks';
   const links = [
     ...(group.sourceIds ?? [])
       .map((sourceId) => getSource(sourceId))
       .filter(Boolean)
-      .map((source) => ({ label: `${source.id}: ${source.title}`, url: source.url })),
+      .map((source) => ({ label: source.title, url: source.url })),
     ...(group.links ?? [])
   ];
 
@@ -405,18 +392,24 @@ function markActiveElements() {
 }
 
 function getHotspotTitle(hotspot) {
+  if (hotspot.detailRoomId) return getRoom(hotspot.detailRoomId)?.title ?? hotspot.title;
   if (hotspot.kind !== 'artifact') return hotspot.title;
   const artifact = getArtifact(hotspot.artifactId);
   return artifact?.name ?? hotspot.label;
 }
 
 function getHotspotPhoto(hotspot) {
+  if (hotspot.detailRoomId) return resolvePhoto(getRoom(hotspot.detailRoomId)) ?? resolvePhoto(hotspot);
   if (hotspot.kind !== 'artifact') return resolvePhoto(hotspot);
   return resolvePhoto(getArtifact(hotspot.artifactId));
 }
 
 function getArtifact(artifactId) {
   return state.data.artifacts.find((entry) => entry.id === artifactId);
+}
+
+function getRoom(roomId) {
+  return state.data.rooms.find((entry) => entry.id === roomId);
 }
 
 function getSource(sourceId) {
