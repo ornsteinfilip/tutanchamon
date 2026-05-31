@@ -88,6 +88,7 @@ check('hotspot renderer uses thumbnail images', /hotspotImage/.test(app) && !/bu
 check('intro keeps title and entry button text only', content.meta?.intro?.title === 'Hrobka Tutanchamona' && content.meta?.intro?.enterLabel === 'Vstoupit' && !content.meta.intro.kicker && !content.meta.intro.text);
 check('intro uses full-screen map iframe instead of photo', content.meta?.intro?.mapUrl === 'https://mapy.com/s/gekudunaku' && /id="introMap"/.test(index) && /introMap\.src = meta\.intro\.mapUrl/.test(app) && !/introSky|--intro-photo|meta\.intro\.photo|tomb-entrance/.test(index + app + JSON.stringify(content)));
 check('intro entry uses dedicated button', /id="introEnter"/.test(index) && /introEnter\.addEventListener\('click', enterPlan\)/.test(app) && !/intro\.addEventListener\('click', enterPlan\)/.test(app));
+check('topbar title links back to intro', /id="appTitleLink" href="#intro"/.test(index) && /appTitleLink\.addEventListener\('click'/.test(app) && /function showIntro\(\)/.test(app) && /classList\.add\('is-splash'\)/.test(app));
 check('intro removed drawn entrance elements', !/class="cliffWall"|class="tombEntrance"|class="stairCut"|class="sun"/.test(index));
 check('detail panel has no fact list UI', !/factList|renderFacts/.test(index + app));
 check('detail source label opens source modal', /buildSourcesIndexLink\('Zdroje:'\)/.test(app) && /href = '#sourcesOverlay'/.test(app) && /openSources\(\)/.test(app));

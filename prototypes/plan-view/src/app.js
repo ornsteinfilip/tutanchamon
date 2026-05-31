@@ -12,7 +12,7 @@ const els = {
   introMap: document.getElementById('introMap'),
   introTitle: document.getElementById('introTitle'),
   introEnter: document.getElementById('introEnter'),
-  appTitle: document.getElementById('appTitle'),
+  appTitleLink: document.getElementById('appTitleLink'),
   filterTabs: document.getElementById('filterTabs'),
   planCanvas: document.getElementById('planCanvas'),
   detailTitle: document.getElementById('detailTitle'),
@@ -54,11 +54,15 @@ function applyMeta() {
     els.introMap.src = meta.intro.mapUrl;
   }
   els.introEnter.textContent = meta.intro.enterLabel ?? 'Vstoupit';
-  els.appTitle.textContent = meta.title;
+  els.appTitleLink.textContent = meta.title;
 }
 
 function bindEvents() {
   els.introEnter.addEventListener('click', enterPlan);
+  els.appTitleLink.addEventListener('click', (event) => {
+    event.preventDefault();
+    showIntro();
+  });
   els.sourcesButton.addEventListener('click', openSources);
   els.closeSourcesButton.addEventListener('click', closeSources);
   els.sourcesOverlay.addEventListener('click', (event) => {
@@ -78,7 +82,20 @@ function enterPlan() {
   els.app.classList.remove('is-splash');
 }
 
+function showIntro() {
+  closeSources();
+  els.app.classList.add('is-splash');
+  if (window.location.hash !== '#intro') {
+    history.pushState(null, '', '#intro');
+  }
+  els.introEnter.focus({ preventScroll: true });
+}
+
 function handleRouteChange() {
+  if (window.location.hash === '#intro') {
+    showIntro();
+    return;
+  }
   if (applyRouteFromHash()) return;
   closeSources();
   showDefaultDetail();
