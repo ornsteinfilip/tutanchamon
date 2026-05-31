@@ -1,0 +1,12 @@
+{
+  "name": "tutanchamon-plan-view",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build-pages.mjs",
+    "verify": "node prototypes/plan-view/verify-plan.mjs && node --check prototypes/plan-view/src/app.js",
+    "preview": "npx wrangler pages dev dist"
+  },
+  "devDependencies": {}
+}
