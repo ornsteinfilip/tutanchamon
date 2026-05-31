@@ -20,6 +20,31 @@
     "statusReady": "Klikni na bod v půdorysu. Předměty otevřou fotku a katalogizační kartu.",
     "sourceNote": "Historické zdroje a zdroje fotografií jsou oddělené od kódu v content.json."
   },
+  "sourcePresentation": {
+    "title": "Použité zdroje",
+    "intro": "Zdroje jsou zvolené tak, aby práce nestála jen na obecném shrnutí z internetu. Základ tvoří archeologické archivy, muzejní popisy předmětů, prostorové podklady k hrobce KV62 a samostatně uvedené zdroje fotografií.",
+    "groups": [
+      {
+        "title": "Archeologický a prostorový základ",
+        "body": "Pro objev, rozvržení hrobky, názvy místností a pořadí nálezu jsou hlavní Griffith Institute a Tutankhamun Spatial Archive. Tyto zdroje slouží jako opora pro mapu hrobky, data objevu a vztahy mezi místnostmi.",
+        "sourceIds": ["S01", "S02", "S10", "S11", "S16", "S17", "S18", "S20"]
+      },
+      {
+        "title": "Výklad předmětů a historický kontext",
+        "body": "Pro stručné texty o Tutanchamonovi, vybraných předmětech a jejich významu jsou použité muzejní a odborné zdroje. Tam, kde je téma nejisté, například příčina smrti, text používá opatrnou formulaci.",
+        "sourceIds": ["S03", "S04", "S05", "S06", "S07", "S08", "S09", "S12"]
+      },
+      {
+        "title": "Fotografie a obrazový materiál",
+        "body": "Fotky jsou lokální kopie používané v ikonách mapy a v pravém panelu. U každé fotky je v detailu uveden odkaz na stránku souboru nebo původní zdroj, aby bylo dohledatelné autorství a licence.",
+        "links": [
+          { "label": "Wikimedia Commons: KV62", "url": "https://commons.wikimedia.org/wiki/Category:KV62" },
+          { "label": "3D schéma KV62 podle Theban Mapping Project", "url": "https://www.starovekyegypt.net/wp-content/uploads/hrobka-kv62.jpg" }
+        ]
+      }
+    ],
+    "note": "Číselné odkazy S01-S20 zůstávají u jednotlivých bodů v pravém panelu, aby šlo přesně dohledat, z čeho konkrétní text vychází."
+  },
   "filters": [
     { "id": "all", "label": "Vše" },
     { "id": "artifact", "label": "Předměty" },
@@ -709,7 +734,7 @@
       "kind": "fact",
       "roomId": "entrance",
       "x": 13,
-      "y": 49,
+      "y": 55,
       "label": "i",
       "title": "První schod",
       "photoId": "first-step",
@@ -777,7 +802,7 @@
       "sourceIds": ["S01", "S02"],
       "relatedPersonIds": ["carter"]
     },
-    { "id": "golden-throne", "kind": "artifact", "roomId": "antechamber", "x": 57, "y": 42, "label": "TR", "artifactId": "A06" },
+    { "id": "golden-throne", "kind": "artifact", "roomId": "antechamber", "x": 59, "y": 46, "label": "TR", "artifactId": "A06" },
     { "id": "chariot", "kind": "artifact", "roomId": "antechamber", "x": 64, "y": 37, "label": "VU", "artifactId": "A07" },
     { "id": "ritual-bed", "kind": "artifact", "roomId": "antechamber", "x": 56, "y": 57, "label": "LE", "artifactId": "A08" },
     { "id": "guardian-statues", "kind": "artifact", "roomId": "antechamber", "x": 70, "y": 50, "label": "ST", "artifactId": "A09" },
@@ -786,8 +811,8 @@
       "id": "annex-doorway",
       "kind": "fact",
       "roomId": "annex",
-      "x": 51,
-      "y": 66,
+      "x": 52,
+      "y": 62,
       "label": "i",
       "title": "Nízký vstup do annexu",
       "photoId": "antechamber-glimpse",
@@ -799,8 +824,8 @@
       "id": "storage-supplies",
       "kind": "fact",
       "roomId": "annex",
-      "x": 59,
-      "y": 78,
+      "x": 60,
+      "y": 80,
       "label": "i",
       "title": "Zásoby a každodennost",
       "photoId": "annex-supplies",
@@ -808,14 +833,14 @@
       "facts": ["Drobné předměty jsou důležité pro pochopení každodennosti a rituálních představ."],
       "sourceIds": ["S18"]
     },
-    { "id": "senet", "kind": "artifact", "roomId": "annex", "x": 54, "y": 71, "label": "SE", "artifactId": "A10" },
+    { "id": "senet", "kind": "artifact", "roomId": "annex", "x": 56, "y": 74, "label": "SE", "artifactId": "A10" },
     { "id": "model-boat", "kind": "artifact", "roomId": "annex", "x": 64, "y": 76, "label": "LO", "artifactId": "A12" },
     {
       "id": "young-king-death",
       "kind": "person",
       "roomId": "burial",
-      "x": 76,
-      "y": 39,
+      "x": 89,
+      "y": 44,
       "label": "T",
       "title": "Mladý král a nejistá smrt",
       "photoId": "tutankhamun-mummy",
@@ -829,8 +854,8 @@
     { "id": "burial-mask", "kind": "artifact", "roomId": "burial", "x": 83, "y": 50, "label": "MA", "artifactId": "A01" },
     { "id": "iron-dagger", "kind": "artifact", "roomId": "burial", "x": 78, "y": 55, "label": "DY", "artifactId": "A11" },
     { "id": "ostrich-fan", "kind": "artifact", "roomId": "burial", "x": 86, "y": 56, "label": "VE", "artifactId": "A14" },
-    { "id": "anubis-shrine", "kind": "artifact", "roomId": "treasury", "x": 78, "y": 66, "label": "AN", "artifactId": "A05" },
-    { "id": "canopic-equipment", "kind": "artifact", "roomId": "treasury", "x": 84, "y": 69, "label": "KA", "artifactId": "A04" },
+    { "id": "anubis-shrine", "kind": "artifact", "roomId": "treasury", "x": 78, "y": 74, "label": "AN", "artifactId": "A05" },
+    { "id": "canopic-equipment", "kind": "artifact", "roomId": "treasury", "x": 85, "y": 70, "label": "KA", "artifactId": "A04" },
     {
       "id": "small-mummies",
       "kind": "fact",

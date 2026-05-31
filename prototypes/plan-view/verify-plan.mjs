@@ -13,6 +13,7 @@ const index = fs.readFileSync(indexPath, 'utf8');
 const styles = fs.readFileSync(stylesPath, 'utf8');
 const photoCatalog = new Map((content.photos ?? []).map((photo) => [photo.id, photo]));
 const planCanvasBlock = styles.match(/\.planCanvas\s*{[^}]*}/s)?.[0] ?? '';
+const hotspotMap = new Map((content.hotspots ?? []).map((hotspot) => [hotspot.id, hotspot]));
 const checks = [];
 
 function check(name, condition) {
@@ -49,6 +50,15 @@ check('shared photo catalog has source pages', content.photos.every((photo) => p
 check('all rooms have sidebar photos', content.rooms.every((room) => localPhotoExists(resolvePhoto(room))));
 check('all people have sidebar photos', content.people.every((person) => localPhotoExists(resolvePhoto(person))));
 check('all hotspots have icon and sidebar photos', content.hotspots.every((hotspot) => localPhotoExists(resolveHotspotPhoto(hotspot))));
+check('hotspots avoid room title corners', [
+  ['first-step', 13, 55],
+  ['golden-throne', 59, 46],
+  ['annex-doorway', 52, 62],
+  ['senet', 56, 74],
+  ['young-king-death', 89, 44],
+  ['anubis-shrine', 78, 74],
+  ['canopic-equipment', 85, 70]
+].every(([id, x, y]) => hotspotMap.get(id)?.x === x && hotspotMap.get(id)?.y === y));
 check('hotspot renderer uses thumbnail images', /hotspotImage/.test(app) && !/button\.textContent = hotspot\.label/.test(app));
 check('intro keeps title and entry button text only', content.meta?.intro?.title === 'Hrobka Tutanchamona' && content.meta?.intro?.enterLabel === 'Vstoupit' && !content.meta.intro.kicker && !content.meta.intro.text);
 check('intro uses full-screen map iframe instead of photo', content.meta?.intro?.mapUrl === 'https://mapy.com/s/gekudunaku' && /id="introMap"/.test(index) && /introMap\.src = meta\.intro\.mapUrl/.test(app) && !/introSky|--intro-photo|meta\.intro\.photo|tomb-entrance/.test(index + app + JSON.stringify(content)));
@@ -56,6 +66,7 @@ check('intro entry uses dedicated button', /id="introEnter"/.test(index) && /int
 check('intro removed drawn entrance elements', !/class="cliffWall"|class="tombEntrance"|class="stairCut"|class="sun"/.test(index));
 check('detail panel has no fact list UI', !/factList|renderFacts/.test(index + app));
 check('detail source label opens source modal', /buildSourcesIndexLink\('Zdroje:'\)/.test(app) && /href = '#sourcesOverlay'/.test(app) && /openSources\(\)/.test(app));
+check('sources modal is presentation style', Array.isArray(content.sourcePresentation?.groups) && content.sourcePresentation.groups.length >= 3 && /sourcePresentation/.test(app + styles) && /buildSourceLinkLine/.test(app) && !/sourceItem|repeat\(auto-fit/.test(app + styles));
 check('topbar has no variant eyebrow', !/modeEyebrow|variantTitle|Půdorysná prohlídka/.test(index + app + JSON.stringify(content)));
 check('detail panel has no kicker or subtitle UI', !/detailKicker|detailMeta|class="meta"|artifact\.short|getRoomTitle|Předsíň plná výbavy|Vozy a jejich části v předsíni/.test(index + app + JSON.stringify(content)));
 check('layout has no left sidebar or footer UI', !/mapPanel|roomList|renderRoomList|bottomBar|statusText|artifactStrip|artifactSlot|renderArtifactStrip/.test(index + app));

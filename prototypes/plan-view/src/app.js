@@ -338,40 +338,52 @@ function renderDetailSources(sourceIds, photo) {
 function renderSources() {
   els.sourceGrid.replaceChildren();
 
-  for (const source of state.data.sources) {
-    const item = document.createElement('article');
-    item.className = 'sourceItem';
-    const title = document.createElement('strong');
-    title.textContent = `${source.id} · ${source.title}`;
+  const presentation = state.data.sourcePresentation;
+  if (!presentation) return;
+
+  els.sourceGrid.className = 'sourcePresentation';
+
+  const intro = document.createElement('p');
+  intro.className = 'sourceIntro';
+  intro.textContent = presentation.intro;
+  els.sourceGrid.append(intro);
+
+  for (const group of presentation.groups ?? []) {
+    const section = document.createElement('section');
+    section.className = 'sourceSection';
+    const title = document.createElement('h3');
+    title.textContent = group.title;
     const body = document.createElement('p');
-    body.textContent = `${source.usedFor} Citováno: ${source.accessedAt}`;
-    item.append(title, body, buildLink(source.url, 'Otevřít zdroj'));
-    els.sourceGrid.append(item);
+    body.textContent = group.body;
+    section.append(title, body, buildSourceLinkLine(group));
+    els.sourceGrid.append(section);
   }
 
-  const renderedPhotoKeys = new Set();
-  const appendPhotoSource = (titleText, photo) => {
-    if (!photo) return;
-    const key = `${photo.sourceUrl}|${photo.src}`;
-    if (renderedPhotoKeys.has(key)) return;
-    renderedPhotoKeys.add(key);
-    const item = document.createElement('article');
-    item.className = 'sourceItem';
-    const title = document.createElement('strong');
-    title.textContent = titleText;
-    const body = document.createElement('p');
-    body.textContent = `${photo.caption} ${photo.credit} ${photo.license}`;
-    item.append(title, body, buildLink(photo.sourceUrl, 'Stránka souboru'));
-    els.sourceGrid.append(item);
-  };
-
-  for (const photo of state.data.photos ?? []) {
-    appendPhotoSource(`Foto · ${photo.caption}`, photo);
+  if (presentation.note) {
+    const note = document.createElement('p');
+    note.className = 'sourceNote';
+    note.textContent = presentation.note;
+    els.sourceGrid.append(note);
   }
+}
 
-  for (const artifact of state.data.artifacts) {
-    appendPhotoSource(`Foto · ${artifact.name}`, resolvePhoto(artifact));
-  }
+function buildSourceLinkLine(group) {
+  const line = document.createElement('p');
+  line.className = 'sourceLinks';
+  const links = [
+    ...(group.sourceIds ?? [])
+      .map((sourceId) => getSource(sourceId))
+      .filter(Boolean)
+      .map((source) => ({ label: `${source.id}: ${source.title}`, url: source.url })),
+    ...(group.links ?? [])
+  ];
+
+  links.forEach((linkItem, index) => {
+    if (index > 0) line.append(document.createTextNode(' · '));
+    line.append(buildLink(linkItem.url, linkItem.label));
+  });
+
+  return line;
 }
 
 function updateHotspotVisibility() {
@@ -405,6 +417,10 @@ function getHotspotPhoto(hotspot) {
 
 function getArtifact(artifactId) {
   return state.data.artifacts.find((entry) => entry.id === artifactId);
+}
+
+function getSource(sourceId) {
+  return state.data.sources.find((entry) => entry.id === sourceId);
 }
 
 function resolvePhoto(item) {

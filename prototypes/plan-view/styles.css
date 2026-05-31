@@ -448,7 +448,7 @@ h1 {
 }
 
 .sourceLine a,
-.sourceItem a {
+.sourcePresentation a {
   color: var(--gold-2);
   text-decoration: underline;
   text-underline-offset: 3px;
@@ -494,38 +494,42 @@ h1 {
   letter-spacing: 0;
 }
 
-.sourceGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 10px;
+.sourcePresentation {
+  max-width: 820px;
 }
 
-.sourceItem {
-  min-height: 90px;
-  padding: 10px;
-  border: 1px solid rgba(236, 222, 184, 0.14);
-  border-radius: 7px;
-  background: rgba(255, 255, 255, 0.04);
+.sourceIntro,
+.sourceSection p,
+.sourceNote {
+  color: rgba(241, 223, 181, 0.78);
+  font-size: 0.9rem;
+  line-height: 1.5;
 }
 
-.sourceItem strong {
-  display: block;
-  margin-bottom: 5px;
+.sourceSection {
+  margin-top: 18px;
+}
+
+.sourceSection h3 {
+  margin: 0 0 6px;
   color: #f5d18e;
-  font-size: 0.88rem;
+  font-size: 1rem;
   line-height: 1.25;
+  letter-spacing: 0;
 }
 
-.sourceItem p {
-  color: rgba(241, 223, 181, 0.74);
-  font-size: 0.78rem;
-  line-height: 1.36;
+.sourceLinks {
+  margin-top: 7px;
 }
 
-.sourceItem a {
-  display: inline-block;
-  margin-top: 8px;
-  font-size: 0.78rem;
+.sourceLinks a {
+  font-size: 0.84rem;
+}
+
+.sourceNote {
+  margin-top: 18px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
 }
 
 noscript {
