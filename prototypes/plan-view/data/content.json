@@ -7,10 +7,10 @@
       "enterLabel": "Vstoupit"
     },
     "defaultDetail": {
-      "kicker": "Půdorys KV62",
-      "title": "Hrobka shora",
+      "kicker": "Model KV62",
+      "title": "Model hrobky KV62",
       "photoId": "kv62-schema",
-      "body": "KV62 je malá královská hrobka v Údolí králů. Tvoří ji vstupní schodiště, chodba, předsíň, annex, pohřební komora a pokladnice. Její význam vychází hlavně z mimořádně zachované pohřební výbavy."
+      "body": "3D model ukazuje kompaktní tvar hrobky KV62 v Údolí králů. Hrobku tvoří vstupní schodiště, chodba, předsíň, annex, pohřební komora a pokladnice. Její význam vychází hlavně z mimořádně zachované pohřební výbavy."
     },
     "statusIntro": "Tlačítkem vstoupit",
     "statusReady": "Klikni na bod v půdorysu. Předměty otevřou fotku a katalogizační kartu.",
