@@ -454,6 +454,10 @@ h1 {
   text-underline-offset: 3px;
 }
 
+.sourceIndexLink {
+  font-weight: 820;
+}
+
 .overlay {
   position: fixed;
   inset: 0;

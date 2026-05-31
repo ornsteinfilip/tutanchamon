@@ -62,9 +62,7 @@ function applyMeta() {
 
 function bindEvents() {
   els.introEnter.addEventListener('click', enterPlan);
-  els.sourcesButton.addEventListener('click', () => {
-    els.sourcesOverlay.classList.add('is-open');
-  });
+  els.sourcesButton.addEventListener('click', openSources);
   els.closeSourcesButton.addEventListener('click', closeSources);
   els.sourcesOverlay.addEventListener('click', (event) => {
     if (event.target === els.sourcesOverlay) closeSources();
@@ -79,6 +77,10 @@ function bindEvents() {
 function enterPlan() {
   if (!els.app.classList.contains('is-splash')) return;
   els.app.classList.remove('is-splash');
+}
+
+function openSources() {
+  els.sourcesOverlay.classList.add('is-open');
 }
 
 function closeSources() {
@@ -320,7 +322,7 @@ function renderDetailSources(sourceIds, photo) {
   }
 
   if (sourceIds.length > 0) {
-    els.detailSources.append(document.createTextNode('Zdroje: '));
+    els.detailSources.append(buildSourcesIndexLink('Zdroje:'), document.createTextNode(' '));
     sourceIds.forEach((sourceId, index) => {
       const source = state.data.sources.find((entry) => entry.id === sourceId);
       if (!source) return;
@@ -412,6 +414,18 @@ function resolvePhoto(item) {
   if (item.photo) return item.photo;
   if (!item.photoId) return null;
   return state.data.photos?.find((photo) => photo.id === item.photoId) ?? null;
+}
+
+function buildSourcesIndexLink(label) {
+  const link = document.createElement('a');
+  link.href = '#sourcesOverlay';
+  link.className = 'sourceIndexLink';
+  link.textContent = label;
+  link.addEventListener('click', (event) => {
+    event.preventDefault();
+    openSources();
+  });
+  return link;
 }
 
 function buildLink(url, label) {
