@@ -5,11 +5,14 @@ const root = new URL('.', import.meta.url);
 const contentPath = new URL('./data/content.json', root);
 const appPath = new URL('./src/app.js', root);
 const indexPath = new URL('./index.html', root);
+const stylesPath = new URL('./styles.css', root);
 
 const content = JSON.parse(fs.readFileSync(contentPath, 'utf8'));
 const app = fs.readFileSync(appPath, 'utf8');
 const index = fs.readFileSync(indexPath, 'utf8');
+const styles = fs.readFileSync(stylesPath, 'utf8');
 const photoCatalog = new Map((content.photos ?? []).map((photo) => [photo.id, photo]));
+const planCanvasBlock = styles.match(/\.planCanvas\s*{[^}]*}/s)?.[0] ?? '';
 const checks = [];
 
 function check(name, condition) {
@@ -53,6 +56,7 @@ check('intro removed drawn entrance elements', !/class="cliffWall"|class="tombEn
 check('detail panel has no fact list UI', !/factList|renderFacts/.test(index + app));
 check('detail panel has no kicker or subtitle UI', !/detailKicker|detailMeta|class="meta"|artifact\.short|getRoomTitle|Předsíň plná výbavy|Vozy a jejich části v předsíni/.test(index + app + JSON.stringify(content)));
 check('layout has no left sidebar or footer UI', !/mapPanel|roomList|renderRoomList|bottomBar|statusText|artifactStrip|artifactSlot|renderArtifactStrip/.test(index + app));
+check('plan canvas is plain black without frame grid', /background:\s*#000;/.test(planCanvasBlock) && !/border:|border-radius:|background-size|box-shadow|linear-gradient/.test(planCanvasBlock));
 check('content has no removed progress copy', !/Prohlédnuté|spodním pásu|artifactStrip/.test(JSON.stringify(content)));
 check('app keeps factual copy out of JS', !/První schod ke vstupu|Zlatá pohřební maska|Howard Carter/.test(app));
 
