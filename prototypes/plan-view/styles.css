@@ -258,15 +258,6 @@ h1 {
   line-height: 1.28;
 }
 
-.progressBox {
-  margin-top: 14px;
-  padding-top: 12px;
-  border-top: 1px solid var(--line);
-  color: var(--muted);
-  font-size: 0.82rem;
-  line-height: 1.42;
-}
-
 .planStage {
   grid-column: 2;
   grid-row: 2;

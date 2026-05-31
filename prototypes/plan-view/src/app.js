@@ -16,7 +16,6 @@ const els = {
   appTitle: document.getElementById('appTitle'),
   filterTabs: document.getElementById('filterTabs'),
   roomList: document.getElementById('roomList'),
-  progressBox: document.getElementById('progressBox'),
   planCanvas: document.getElementById('planCanvas'),
   detailKicker: document.getElementById('detailKicker'),
   detailTitle: document.getElementById('detailTitle'),
@@ -56,7 +55,6 @@ async function init() {
   renderArtifactStrip();
   renderSources();
   showDefaultDetail();
-  updateProgress();
 }
 
 function applyMeta() {
@@ -274,7 +272,6 @@ function selectHotspot(hotspotId) {
 
   markActiveElements();
   renderArtifactStrip();
-  updateProgress();
 }
 
 function showDefaultDetail() {
@@ -422,14 +419,6 @@ function renderSources() {
     item.append(title, body, buildLink(artifact.photo.sourceUrl, 'Stránka souboru'));
     els.sourceGrid.append(item);
   }
-}
-
-function updateProgress() {
-  const totalArtifacts = state.data.artifacts.length;
-  const viewedArtifacts = state.viewedArtifacts.size;
-  const totalHotspots = state.data.hotspots.length;
-  const viewedHotspots = state.viewedHotspots.size;
-  els.progressBox.textContent = `Prohlédnuté předměty: ${viewedArtifacts}/${totalArtifacts}. Prohlédnuté body: ${viewedHotspots}/${totalHotspots}. Obsah je editovatelný v data/content.json.`;
 }
 
 function updateHotspotVisibility() {
