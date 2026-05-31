@@ -1,0 +1,10 @@
+Chceme udělat hru v jednoduchém 3D frameworku, jako je Three.js, kde bude objevitel objevovat Hrobku faraona Tutanchamona. Eh, hra bude realizována tak, že v temnotě prosvítá chodba vnitřkem pyramidy. Objevitel jde s loučí, čímž osvětluje chodbu, a je vidět jenom bezprostřední blízká část chodby ve světle louče. Pohybuje se v předem určených segmentech, kdy každý segment reprezentuje část, eh, života faraona Tutanchámona, počínaje jeho vládou, eh, životem, eh, kdy zemřel. Eh, díky čemu se stal nejznámějším faraonem historie a další témata, které vytáhneš z historie faraona Tutanchámona. Eh, musí hra odpovídat na to, kdo objevil hrobku a kdy, jak ta hrobka vypadá v porovnání s jinými hrobkami významnějších faraonů, z jakých částí se skládá. To se ukáže tak, že úplně jednoduše těmi hrobkami projdeme a ty části uvidíme. Eh, a měli bychom se cestou pojmenovat a vidět alespoň deset předmětů z Tutanchamonovy hrobky. Eh, naprosto konkrétně. To znamená, že něco uvidíme již cestou a něco uvidíme, když přijdeme do nějakých těch hlavních komor, kde jsou uloženy ostatky ženy a poklady.
+
+Spíš než hra by to měla být jednoduchá 3D hříčka. To znamená, že chodba v rámci 3D projekce povede diagonálně obrazovkou. Její konce budou zanikat ve tmě a prostor na opačných stranách diagonály volně využijeme jako informační prostor o stavu hry. To znamená, na jedné straně bude, eh, mapka, jak objevujeme, eh, pyramidu a hrobku, a na druhé straně bude box informační, ve kterém se budou objevovat informace o jednotlivých předmětech a případně s obrázky.
+
+Veškerá grafika bude stylizovaná egyptská grafika, jako, eh, low polygonal 3D s jednoduchými texturami.Hra musí působit atmosféricky a musí být vybavena základními zvuky, jako jsou, eh, kroky, zvuky hrobky, předmětů, otevírání, eh, a tak podobně.
+
+Připrav, eh, jednoduché schéma, eh, osob, předmětů a dalších faktů dle popisu výše. Připrav, eh, ze zadání samostatný Markdown soubor strukturovaný, kde jednoduše se přesvědčíme o konceptů, včetně v Markdownu jednoduchých ASCII graficky znázorněných interfaceů.
+
+Objevitel bude moct sbírat věci do inventáře, který bude součástí grafiky.
+
