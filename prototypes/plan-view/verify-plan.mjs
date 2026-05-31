@@ -16,6 +16,7 @@ const workspaceBlock = styles.match(/\.workspace\s*{[^}]*}/s)?.[0] ?? '';
 const detailPanelBlock = styles.match(/\.detailPanel\s*{[^}]*}/s)?.[0] ?? '';
 const planCanvasBlock = styles.match(/\.planCanvas\s*{[^}]*}/s)?.[0] ?? '';
 const hotspotMap = new Map((content.hotspots ?? []).map((hotspot) => [hotspot.id, hotspot]));
+const roomMap = new Map((content.rooms ?? []).map((room) => [room.id, room]));
 const checks = [];
 
 function check(name, condition) {
@@ -53,14 +54,16 @@ check('all rooms have sidebar photos', content.rooms.every((room) => localPhotoE
 check('all people have sidebar photos', content.people.every((person) => localPhotoExists(resolvePhoto(person))));
 check('all hotspots have icon and sidebar photos', content.hotspots.every((hotspot) => localPhotoExists(resolveHotspotPhoto(hotspot))));
 check('hotspots avoid room title corners', [
-  ['first-step', 13, 55],
-  ['golden-throne', 59, 46],
-  ['annex-doorway', 52, 62],
-  ['senet', 56, 74],
-  ['young-king-death', 89, 44],
-  ['anubis-shrine', 78, 74],
-  ['canopic-equipment', 85, 70]
+  ['first-step', 13, 62],
+  ['sealed-doorway', 25, 61],
+  ['golden-throne', 58, 54],
+  ['annex-doorway', 52, 70],
+  ['senet', 52, 78],
+  ['young-king-death', 80, 29],
+  ['anubis-shrine', 86, 38],
+  ['canopic-equipment', 92, 39]
 ].every(([id, x, y]) => hotspotMap.get(id)?.x === x && hotspotMap.get(id)?.y === y));
+check('plan topology follows KV62 model', roomMap.get('corridor')?.x > roomMap.get('entrance')?.x && roomMap.get('antechamber')?.x > roomMap.get('corridor')?.x && roomMap.get('annex')?.y > roomMap.get('antechamber')?.y && roomMap.get('annex')?.x < roomMap.get('antechamber')?.x && roomMap.get('burial')?.y < roomMap.get('antechamber')?.y && roomMap.get('treasury')?.x > roomMap.get('burial')?.x && Math.abs((roomMap.get('treasury')?.y ?? 0) - (roomMap.get('burial')?.y ?? 0)) < 8);
 check('hotspot renderer uses thumbnail images', /hotspotImage/.test(app) && !/button\.textContent = hotspot\.label/.test(app));
 check('intro keeps title and entry button text only', content.meta?.intro?.title === 'Hrobka Tutanchamona' && content.meta?.intro?.enterLabel === 'Vstoupit' && !content.meta.intro.kicker && !content.meta.intro.text);
 check('intro uses full-screen map iframe instead of photo', content.meta?.intro?.mapUrl === 'https://mapy.com/s/gekudunaku' && /id="introMap"/.test(index) && /introMap\.src = meta\.intro\.mapUrl/.test(app) && !/introSky|--intro-photo|meta\.intro\.photo|tomb-entrance/.test(index + app + JSON.stringify(content)));
