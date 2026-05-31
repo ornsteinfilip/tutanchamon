@@ -72,6 +72,7 @@ check('detail panel has no kicker or subtitle UI', !/detailKicker|detailMeta|cla
 check('layout has no left sidebar or footer UI', !/mapPanel|roomList|renderRoomList|bottomBar|statusText|artifactStrip|artifactSlot|renderArtifactStrip/.test(index + app));
 check('plan canvas is plain black without frame grid', /background:\s*#000;/.test(planCanvasBlock) && !/border:|border-radius:|background-size|box-shadow|linear-gradient/.test(planCanvasBlock));
 check('content has no removed progress copy', !/Prohlédnuté|spodním pásu|artifactStrip/.test(JSON.stringify(content)));
+check('default detail has no implementation copy', !/Klikací body v mapě|Texty, souřadnice|JSON souboru/.test(JSON.stringify(content.meta?.defaultDetail ?? {})));
 check('app keeps factual copy out of JS', !/První schod ke vstupu|Zlatá pohřební maska|Howard Carter/.test(app));
 
 const failed = checks.filter((entry) => !entry.ok);

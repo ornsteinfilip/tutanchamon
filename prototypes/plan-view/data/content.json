@@ -10,11 +10,7 @@
       "kicker": "Půdorys KV62",
       "title": "Hrobka shora",
       "photoId": "kv62-schema",
-      "body": "KV62 je malá hrobka v Údolí králů. V této variantě ji sleduješ jako jednoduchý 2D plán: vstupní schodiště, chodba, předsíň, annex, pohřební komora a pokladnice. Každý bod otevře faktickou kartu s textem, fotkou a zdroji.",
-      "facts": [
-        "Klikací body v mapě mají vlastní lokální fotku v kruhové ikoně i v detailním panelu.",
-        "Texty, souřadnice místností, body, osoby, zdroje i fotky jsou v tomto JSON souboru."
-      ]
+      "body": "KV62 je malá hrobka v Údolí králů. V této variantě ji sleduješ jako jednoduchý 2D plán: vstupní schodiště, chodba, předsíň, annex, pohřební komora a pokladnice. Každý bod otevře faktickou kartu s textem, fotkou a zdroji."
     },
     "statusIntro": "Tlačítkem vstoupit",
     "statusReady": "Klikni na bod v půdorysu. Předměty otevřou fotku a katalogizační kartu.",
