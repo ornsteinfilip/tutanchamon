@@ -979,8 +979,8 @@
       "id": "young-king-death",
       "kind": "person",
       "roomId": "burial",
-      "x": 80,
-      "y": 64,
+      "x": 84,
+      "y": 69,
       "label": "T",
       "personId": "tutankhamun"
     },

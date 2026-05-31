@@ -72,7 +72,7 @@ check('hotspots avoid room title corners', [
   ['golden-throne', 69, 47],
   ['annex-doorway', 58, 66],
   ['senet', 51, 77],
-  ['young-king-death', 80, 64],
+  ['young-king-death', 84, 69],
   ['anubis-shrine', 86, 31],
   ['canopic-equipment', 92, 32]
 ].every(([id, x, y]) => hotspotMap.get(id)?.x === x && hotspotMap.get(id)?.y === y));
