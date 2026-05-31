@@ -336,7 +336,8 @@ function renderDetailSources(sourceIds, photo) {
   }
 
   if (sourceIds.length > 0) {
-    els.detailSources.append(buildSourcesIndexLink('Zdroje:'));
+    els.detailSources.append(buildSourcesIndexLink('Zdroje:'), document.createTextNode(' '));
+    appendDetailSourceLinks(els.detailSources, sourceIds);
   }
 
   if (photo) {
@@ -380,6 +381,30 @@ function buildSourceLinkLine(group) {
   });
 
   return line;
+}
+
+function appendDetailSourceLinks(container, sourceIds) {
+  const sources = sourceIds.map((sourceId) => getSource(sourceId)).filter(Boolean);
+  const labelCounts = new Map();
+
+  for (const source of sources) {
+    const label = getSourceBaseLabel(source);
+    labelCounts.set(label, (labelCounts.get(label) ?? 0) + 1);
+  }
+
+  const seenLabels = new Map();
+  sources.forEach((source, index) => {
+    if (index > 0) container.append(document.createTextNode(', '));
+    const baseLabel = getSourceBaseLabel(source);
+    const seen = (seenLabels.get(baseLabel) ?? 0) + 1;
+    seenLabels.set(baseLabel, seen);
+    const label = labelCounts.get(baseLabel) > 1 ? `${baseLabel} ${seen}` : baseLabel;
+    container.append(buildLink(source.url, label));
+  });
+}
+
+function getSourceBaseLabel(source) {
+  return String(source.title ?? 'Zdroj').split(':')[0].trim() || 'Zdroj';
 }
 
 function updateHotspotVisibility() {
