@@ -9,8 +9,9 @@ const state = {
 const els = {
   app: document.getElementById('app'),
   intro: document.getElementById('intro'),
-  introSky: document.getElementById('introSky'),
+  introMap: document.getElementById('introMap'),
   introTitle: document.getElementById('introTitle'),
+  introEnter: document.getElementById('introEnter'),
   modeEyebrow: document.getElementById('modeEyebrow'),
   appTitle: document.getElementById('appTitle'),
   filterTabs: document.getElementById('filterTabs'),
@@ -51,15 +52,16 @@ async function init() {
 function applyMeta() {
   const { meta } = state.data;
   els.introTitle.textContent = meta.intro.title;
-  if (meta.intro.photo?.src) {
-    els.introSky.style.setProperty('--intro-photo', `url("${meta.intro.photo.src}")`);
+  if (meta.intro.mapUrl) {
+    els.introMap.src = meta.intro.mapUrl;
   }
+  els.introEnter.textContent = meta.intro.enterLabel ?? 'Vstoupit';
   els.modeEyebrow.textContent = meta.variantTitle;
   els.appTitle.textContent = meta.title;
 }
 
 function bindEvents() {
-  els.intro.addEventListener('click', enterPlan);
+  els.introEnter.addEventListener('click', enterPlan);
   els.sourcesButton.addEventListener('click', () => {
     els.sourcesOverlay.classList.add('is-open');
   });

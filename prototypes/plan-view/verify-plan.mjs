@@ -50,8 +50,9 @@ check('all rooms have sidebar photos', content.rooms.every((room) => localPhotoE
 check('all people have sidebar photos', content.people.every((person) => localPhotoExists(resolvePhoto(person))));
 check('all hotspots have icon and sidebar photos', content.hotspots.every((hotspot) => localPhotoExists(resolveHotspotPhoto(hotspot))));
 check('hotspot renderer uses thumbnail images', /hotspotImage/.test(app) && !/button\.textContent = hotspot\.label/.test(app));
-check('intro keeps only the title text', content.meta?.intro?.title === 'Hrobka Tutanchamona' && !content.meta.intro.kicker && !content.meta.intro.text);
-check('intro uses the requested local photo', content.meta?.intro?.photo?.src === './assets/intro/tomb-entrance.jpg' && fs.existsSync(new URL('./assets/intro/tomb-entrance.jpg', root)));
+check('intro keeps title and entry button text only', content.meta?.intro?.title === 'Hrobka Tutanchamona' && content.meta?.intro?.enterLabel === 'Vstoupit' && !content.meta.intro.kicker && !content.meta.intro.text);
+check('intro uses full-screen map iframe instead of photo', content.meta?.intro?.mapUrl === 'https://mapy.com/s/gekudunaku' && /id="introMap"/.test(index) && /introMap\.src = meta\.intro\.mapUrl/.test(app) && !/introSky|--intro-photo|meta\.intro\.photo|tomb-entrance/.test(index + app + JSON.stringify(content)));
+check('intro entry uses dedicated button', /id="introEnter"/.test(index) && /introEnter\.addEventListener\('click', enterPlan\)/.test(app) && !/intro\.addEventListener\('click', enterPlan\)/.test(app));
 check('intro removed drawn entrance elements', !/class="cliffWall"|class="tombEntrance"|class="stairCut"|class="sun"/.test(index));
 check('detail panel has no fact list UI', !/factList|renderFacts/.test(index + app));
 check('detail panel has no kicker or subtitle UI', !/detailKicker|detailMeta|class="meta"|artifact\.short|getRoomTitle|Předsíň plná výbavy|Vozy a jejich části v předsíni/.test(index + app + JSON.stringify(content)));

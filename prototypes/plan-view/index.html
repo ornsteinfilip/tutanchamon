@@ -9,9 +9,12 @@
 <body>
   <main class="app is-splash" id="app">
     <section class="intro" id="intro" aria-label="Úvodní obraz">
-      <div class="introSky" id="introSky" aria-hidden="true"></div>
+      <div class="introMapFrame" aria-hidden="true">
+        <iframe class="introMap" id="introMap" title="Mapa Údolí králů" tabindex="-1" loading="eager" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
       <div class="titleBlock">
         <h1 id="introTitle">Hrobka Tutanchamona</h1>
+        <button class="introEnter" id="introEnter" type="button">Vstoupit</button>
       </div>
     </section>
 

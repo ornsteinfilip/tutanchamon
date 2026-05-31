@@ -4,10 +4,8 @@
     "variantTitle": "Půdorysná prohlídka",
     "intro": {
       "title": "Hrobka Tutanchamona",
-      "photo": {
-        "src": "./assets/intro/tomb-entrance.jpg",
-        "sourceUrl": "https://www.cksen.cz/modules/articles/images/800/TombofRamessesII.jpg"
-      }
+      "mapUrl": "https://mapy.com/s/gekudunaku",
+      "enterLabel": "Vstoupit"
     },
     "defaultDetail": {
       "kicker": "Půdorys KV62",
@@ -19,7 +17,7 @@
         "Texty, souřadnice místností, body, osoby, zdroje i fotky jsou v tomto JSON souboru."
       ]
     },
-    "statusIntro": "Kliknutím kamkoliv vstoupit",
+    "statusIntro": "Tlačítkem vstoupit",
     "statusReady": "Klikni na bod v půdorysu. Předměty otevřou fotku a katalogizační kartu.",
     "sourceNote": "Historické zdroje a zdroje fotografií jsou oddělené od kódu v content.json."
   },
