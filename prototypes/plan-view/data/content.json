@@ -10,36 +10,36 @@
       "kicker": "Půdorys KV62",
       "title": "Hrobka shora",
       "photoId": "kv62-schema",
-      "body": "KV62 je malá hrobka v Údolí králů. V této variantě ji sleduješ jako jednoduchý 2D plán: vstupní schodiště, chodba, předsíň, annex, pohřební komora a pokladnice. Každý bod otevře faktickou kartu s textem, fotkou a zdroji."
+      "body": "KV62 je malá královská hrobka v Údolí králů. Tvoří ji vstupní schodiště, chodba, předsíň, annex, pohřební komora a pokladnice. Její význam vychází hlavně z mimořádně zachované pohřební výbavy."
     },
     "statusIntro": "Tlačítkem vstoupit",
     "statusReady": "Klikni na bod v půdorysu. Předměty otevřou fotku a katalogizační kartu.",
-    "sourceNote": "Historické zdroje a zdroje fotografií jsou oddělené od kódu v content.json."
+    "sourceNote": "Historické zdroje a zdroje fotografií jsou uvedené samostatně."
   },
   "sourcePresentation": {
     "title": "Použité zdroje",
-    "intro": "Zdroje jsou zvolené tak, aby práce nestála jen na obecném shrnutí z internetu. Základ tvoří archeologické archivy, muzejní popisy předmětů, prostorové podklady k hrobce KV62 a samostatně uvedené zdroje fotografií.",
+    "intro": "Přehled zdrojů k hrobce KV62, objevu v roce 1922, rozvržení místností, Tutanchamonovi a vybraným předmětům.",
     "groups": [
       {
         "title": "Archeologický a prostorový základ",
-        "body": "Pro objev, rozvržení hrobky, názvy místností a pořadí nálezu jsou hlavní Griffith Institute a Tutankhamun Spatial Archive. Tyto zdroje slouží jako opora pro mapu hrobky, data objevu a vztahy mezi místnostmi.",
+        "body": "Griffith Institute uchovává Carterovu dokumentaci a fotografie z odkrývání KV62. Tutankhamun Spatial Archive a Theban Mapping Project popisují rozměry a prostor hrobky.",
         "sourceIds": ["S01", "S02", "S10", "S11", "S16", "S17", "S18", "S20"]
       },
       {
         "title": "Výklad předmětů a historický kontext",
-        "body": "Pro stručné texty o Tutanchamonovi, vybraných předmětech a jejich významu jsou použité muzejní a odborné zdroje. Tam, kde je téma nejisté, například příčina smrti, text používá opatrnou formulaci.",
+        "body": "Muzejní katalogy a odborné texty uvádějí popisy masky, rakví, trůnu, vozů, dýky a dalších předmětů. Texty k Tutanchamonovi zachycují mladý věk, rodinné souvislosti a stav výzkumu.",
         "sourceIds": ["S03", "S04", "S05", "S06", "S07", "S08", "S09", "S12"]
       },
       {
         "title": "Fotografie a obrazový materiál",
-        "body": "Fotky jsou lokální kopie používané v ikonách mapy a v pravém panelu. U každé fotky je v detailu uveden odkaz na stránku souboru nebo původní zdroj, aby bylo dohledatelné autorství a licence.",
+        "body": "Obrazový materiál pochází z Wikimedia Commons, muzejních databází a schématu KV62 podle Theban Mapping Project.",
         "links": [
           { "label": "Wikimedia Commons: KV62", "url": "https://commons.wikimedia.org/wiki/Category:KV62" },
           { "label": "3D schéma KV62 podle Theban Mapping Project", "url": "https://www.starovekyegypt.net/wp-content/uploads/hrobka-kv62.jpg" }
         ]
       }
     ],
-    "note": "Číselné odkazy S01-S20 zůstávají u jednotlivých bodů v pravém panelu, aby šlo přesně dohledat, z čeho konkrétní text vychází."
+    "note": "Zkratky S01-S20 odpovídají položkám v seznamu zdrojů."
   },
   "filters": [
     { "id": "all", "label": "Vše" },
@@ -313,10 +313,10 @@
       "y": 46,
       "w": 26,
       "h": 8,
-      "body": "Chodba v KV62 je krátká a praktická, ne dlouhý monumentální průchod jako u některých větších královských hrobek.",
+      "body": "Chodba v KV62 je krátká a sestupuje od vstupu k předsíni. Rozměry hrobky jsou oproti některým rozsáhlejším královským hrobkám skromné.",
       "facts": [
         "KV62 působí spíš jako kompaktní hrobka s několika místnostmi.",
-        "Sláva hrobky vychází hlavně ze zachování a množství nálezů, ne z její velikosti."
+        "Význam hrobky vychází hlavně ze zachování a množství nálezů."
       ],
       "sourceIds": ["S05"]
     },
@@ -333,8 +333,8 @@
       "h": 30,
       "body": "Předsíň byla prvním velkým prostorem, kam Carter nahlédl 26. listopadu 1922. Uvnitř stály vozy, lehátka, trůn, strážní sochy a další výbava pro posmrtný život.",
       "facts": [
-        "Předměty nebyly vystavené jako v muzeu; byly nahuštěné v malém prostoru.",
-        "Tahle místnost dobře ukazuje, proč se KV62 stala výjimečným archeologickým nálezem."
+        "Předměty v předsíni ležely hustě pohromadě v malém prostoru.",
+        "Místnost dobře dokládá mimořádný rozsah dochované pohřební výbavy."
       ],
       "sourceIds": ["S01", "S02"]
     },
@@ -351,8 +351,8 @@
       "h": 18,
       "body": "Annex je menší vedlejší prostor u předsíně. Byl velmi hustě zaplněný nádobami, koši, zásobami a drobnějšími předměty.",
       "facts": [
-        "V této místnosti dává smysl ukázat každodenní i praktické věci.",
-        "Nízký vstup z předsíně připomíná, že půdorys KV62 je členitý, ale stále malý."
+        "V annexu se objevují nádoby, koše, zásoby a drobnější výbava.",
+        "Nízký vstup z předsíně ukazuje členitý a kompaktní půdorys KV62."
       ],
       "sourceIds": ["S18"]
     },
@@ -414,7 +414,7 @@
       "name": "Anchesenamon",
       "role": "Královna a manželka Tutanchamona",
       "photoId": "ankhesenamon-throne",
-      "body": "V této verzi se objevuje hlavně přes výjev na zlatém trůnu. Její hrob ani mumie nejsou bezpečně identifikované jako součást KV62.",
+      "body": "S Tutanchamonem je spojena například výjevem na zlatém trůnu. Bezpečná identifikace jejího hrobu nebo mumie v KV62 chybí.",
       "sourceIds": ["S02", "S06"]
     },
     {
@@ -438,7 +438,7 @@
       "name": "Egyptští dělníci a předáci expedice",
       "role": "Každodenní práce v terénu",
       "photoId": "egyptian-workers",
-      "body": "Objev nebyl jen práce Cartera. Na odkrývání a manipulaci s materiálem se podíleli místní pracovníci a předáci.",
+      "body": "Na objevu, odkrývání hrobky a manipulaci s nálezy se vedle Cartera podíleli místní pracovníci a předáci.",
       "sourceIds": ["S01", "S02"]
     }
   ],
@@ -450,7 +450,7 @@
       "roomId": "burial",
       "body": "Zlatá maska kryla hlavu a ramena mumie. Díky výrazné tváři, pruhované pokrývce hlavy a modrým detailům se stala symbolem celého objevu.",
       "facts": [
-        "Maska nebyla samostatná dekorace, ale součást ochrany mumie.",
+        "Maska tvořila ochrannou část pohřební výbavy mumie.",
         "Její sláva souvisí s tím, že KV62 byla nalezena mimořádně zachovaná."
       ],
       "sourceIds": ["S02", "S06"],
@@ -471,7 +471,7 @@
       "body": "V kvarcitovém sarkofágu byly uloženy rakve s mumií Tutanchamona. V půdorysu jde o střed pohřební komory.",
       "facts": [
         "Sarkofág a rakve ukazují postupné vrstvy ochrany těla.",
-        "V této verzi ho lze prohlédnout bez herního postupu, čistě kliknutím."
+        "Sarkofág stojí v centru pohřební komory."
       ],
       "sourceIds": ["S10"],
       "photo": {
@@ -491,7 +491,7 @@
       "body": "Nejvnitřnější rakev patřila k nejvýraznějším nálezům z pohřební komory. Ve skutečné dokumentaci tvoří část složitého souboru rakví a schrán.",
       "facts": [
         "Rakve byly součástí vícevrstvé pohřební ochrany.",
-        "U takových předmětů je důležité rozlišovat model, repliku a originál; detailní fotka odkazuje na konkrétní stránku souboru."
+        "Dochované předměty je potřeba odlišovat od replik a pozdějších modelů."
       ],
       "sourceIds": ["S02", "S10"],
       "photo": {
@@ -531,7 +531,7 @@
       "body": "Anubis byl spojen s mumifikací a ochranou mrtvých. Ve slavné podobě sedí černý šakal na pozlacené schráně.",
       "facts": [
         "Tento předmět patřil do pokladnice.",
-        "V půdorysu je umístěn jako výrazný rituální bod za pohřební komorou."
+        "Nacházel se za pohřební komorou v pokladnici."
       ],
       "sourceIds": ["S11"],
       "photo": {
@@ -550,8 +550,8 @@
       "roomId": "antechamber",
       "body": "Zlatý trůn patří k nejznámějším předmětům z předsíně. Výjev ukazuje Tutanchamona a Anchesenamon a zároveň připomíná náboženský kontext doby.",
       "facts": [
-        "Trůn je dobrý bod pro vysvětlení královského páru.",
-        "Nejde o důkaz ostatků královny v KV62; královna je zde přítomná obrazem a kontextem."
+        "Výjev na trůnu zachycuje královský pár v intimnější scéně.",
+        "Bezpečně určené pozůstatky královny v KV62 chybí."
       ],
       "sourceIds": ["S02", "S06"],
       "photo": {
@@ -568,10 +568,10 @@
       "icon": "VU",
       "name": "Rozebraný královský vůz",
       "roomId": "antechamber",
-      "body": "Hrobka obsahovala několik vozů a mnoho jejich částí. Bezpečnější je mluvit obecně o královských vozech, ne každý označit jako válečný.",
+      "body": "Hrobka obsahovala několik vozů a mnoho jejich částí. V odborných popisech se u nich často používá obecnější označení královské vozy.",
       "facts": [
         "Předměty byly v předsíni velmi nahuštěné.",
-        "V půdorysné verzi vůz pomáhá ukázat, kolik velkých objektů se vešlo do malé místnosti."
+        "Velké části vozů patřily k výrazným objektům v malé předsíni."
       ],
       "sourceIds": ["S02", "S05"],
       "photo": {
@@ -590,8 +590,8 @@
       "roomId": "antechamber",
       "body": "Pohřební lehátka měla výrazné stylizované zvířecí tvary. V předsíni patřila k nejviditelnějším velkým objektům.",
       "facts": [
-        "Zvířecí forma není dekorace navíc, ale součást rituálního významu.",
-        "V jednoduché 2D grafice stačí symbol postele a detail s fotografií."
+        "Zvířecí forma patřila k rituálnímu významu lehátka.",
+        "Tvar lehátek patří k nejlépe rozpoznatelným prvkům předsíně."
       ],
       "sourceIds": ["S02"],
       "photo": {
@@ -628,10 +628,10 @@
       "icon": "SE",
       "name": "Herní skříňka / senet",
       "roomId": "annex",
-      "body": "Herní skříňka ukazuje každodenní i symbolický rozměr posmrtné výbavy. V této nové variantě už sama aplikace není hra; senet je pouze historický předmět k prohlédnutí.",
+      "body": "Herní skříňka ukazuje každodenní i symbolický rozměr posmrtné výbavy. Senet měl v Egyptě význam spojený s cestou a posmrtným životem.",
       "facts": [
         "Senet souvisí s představami o cestě a posmrtném životě.",
-        "Pro školní verzi je vhodné jasně odlišit historickou hru senet od mechanismu aplikace."
+        "Herní předměty patřily do širší výbavy pro život po smrti."
       ],
       "sourceIds": ["S02", "S08", "S18"],
       "photo": {
@@ -651,7 +651,7 @@
       "body": "Výzkum složení čepele podporuje meteoritický původ železa. Dýka dobře ukazuje, že i malý předmět může nést výrazný vědecký příběh.",
       "facts": [
         "Meteoritické železo bylo ve starověku mimořádně cenné.",
-        "Tento bod se hodí do detailního panelu, protože fotka ukáže tvar čepele lépe než 2D ikona."
+        "Tvar čepele a zdobená rukojeť patří k hlavním znakům předmětu."
       ],
       "sourceIds": ["S02", "S07"],
       "photo": {
@@ -668,10 +668,10 @@
       "icon": "LO",
       "name": "Modelová loď",
       "roomId": "annex",
-      "body": "Modelové lodě souvisely s cestou, služebnictvem a představami o posmrtném životě. V hrobce bylo více modelů, ne jeden izolovaný předmět.",
+      "body": "Modelové lodě souvisely s cestou, služebnictvem a představami o posmrtném životě. V hrobce se nacházelo více modelů lodí.",
       "facts": [
-        "Model lodě je dobré zobrazit v annexu nebo pokladnici podle konkrétní interpretace scény.",
-        "Tady slouží jako příklad praktické i symbolické výbavy."
+        "Modely lodí zastupovaly dopravu, služebnictvo a zásobování pro posmrtný svět.",
+        "Některé modely obsahovaly posádku nebo vybavení."
       ],
       "sourceIds": ["S02", "S09", "S18"],
       "photo": {
@@ -691,7 +691,7 @@
       "body": "Alabastrový pohár ve tvaru otevřeného lotosu symbolicky přeje králi život, obnovu a trvání.",
       "facts": [
         "Lotos je v egyptském prostředí výrazný symbol obnovy.",
-        "Předmět je drobnější, proto v půdorysu funguje jako detailový bod s fotografií."
+        "I drobnější předměty patřily k významné symbolické výbavě hrobky."
       ],
       "sourceIds": ["S02", "S06"],
       "photo": {
@@ -711,7 +711,7 @@
       "body": "Vějíř z pohřební komory byl spojen s pštrosími pery a loveckým výjevem. Patří k předmětům, které ukazují královskou reprezentaci i osobní rozměr výbavy.",
       "facts": [
         "Původně měl střídavě hnědá a bílá pštrosí pera.",
-        "Fotka je v detailu důležitější než půdorysný symbol."
+        "Dochované držadlo a výzdoba připomínají královský lov a reprezentaci."
       ],
       "sourceIds": ["S02", "S06"],
       "photo": {
@@ -734,7 +734,7 @@
       "label": "i",
       "title": "První schod",
       "photoId": "first-step",
-      "body": "První schod ke vstupu do KV62 byl nalezen 4. listopadu 1922. V nové variantě ho jen dokumentujeme kliknutím, bez pohybu postavy.",
+      "body": "První schod ke vstupu do KV62 byl nalezen 4. listopadu 1922. Objev otevřel cestu k odkrytí zapečetěného vstupu.",
       "facts": ["Schodiště KV62 mělo 16 skalních stupňů."],
       "sourceIds": ["S01", "S16"],
       "relatedPersonIds": ["carter", "carnarvon", "egyptian-workers"]
@@ -749,7 +749,7 @@
       "title": "Carterův tým",
       "photoId": "carter-team",
       "body": "Hrobku objevil tým Howarda Cartera s podporou lorda Carnarvona. Práce v terénu stála také na egyptských dělnících a předácích.",
-      "facts": ["Objev byl týmová a dokumentační práce, ne osamělý dobrodružný výkon."],
+      "facts": ["Objev byl týmovou a dokumentační prací terénní expedice."],
       "sourceIds": ["S01", "S02"],
       "relatedPersonIds": ["carter", "carnarvon", "egyptian-workers"]
     },
@@ -763,7 +763,7 @@
       "title": "První zapečetěný vstup",
       "photoId": "sealed-doorway",
       "body": "U paty schodiště byla první zapečetěná přepážka. V půdorysu je vidět jako hranice mezi vstupem a chodbou.",
-      "facts": ["Pečeti a přepážky jsou důležité pro pochopení stavu hrobky při objevu."],
+      "facts": ["Pečeti a přepážky pomáhají určit stav hrobky při objevu."],
       "sourceIds": ["S17"]
     },
     {
@@ -775,12 +775,12 @@
       "label": "i",
       "title": "Malá, ale mimořádná",
       "photoId": "kv62-schema",
-      "body": "KV62 nebyla obrovská královská hrobka. Je slavná hlavně proto, že se dochovala mimořádně neporušená a plná nálezů.",
+      "body": "KV62 patří k menším královským hrobkám. Proslavila ji mimořádně zachovaná výbava a stav nálezu.",
       "facts": [
         "3D schéma uvádí celkovou délku 30,80 m, celkovou plochu 109,83 m² a celkový objem 277,01 m³.",
         "Maximální výška je 3,68 m, minimální šířka 0,66 m a maximální šířka 7,86 m.",
-        "Větší hrobky významnějších faraonů mohly být rozsáhlejší, ale často byly více vykradené.",
-        "Půdorys tady záměrně ukazuje kompaktní rozsah KV62."
+        "Mnohé rozsáhlejší královské hrobky byly ve starověku více vykradené.",
+        "Kompaktní půdorys vysvětluje husté rozmístění předmětů."
       ],
       "sourceIds": ["S05"]
     },
@@ -812,8 +812,8 @@
       "label": "i",
       "title": "Nízký vstup do annexu",
       "photoId": "antechamber-glimpse",
-      "body": "Annex byl přístupný nízkým bočním vstupem z předsíně. Ve 2D půdorysu je to krátká odbočka dolů.",
-      "facts": ["Tahle odbočka pomáhá pochopit, že KV62 není dlouhý lineární chrám, ale malý kompaktní soubor místností."],
+      "body": "Annex byl přístupný nízkým bočním vstupem z předsíně. Odbočka vede z hlavní osy hrobky směrem dolů v půdorysu.",
+      "facts": ["Odbočka ukazuje kompaktní členění KV62."],
       "sourceIds": ["S18"]
     },
     {
@@ -825,8 +825,8 @@
       "label": "i",
       "title": "Zásoby a každodennost",
       "photoId": "annex-supplies",
-      "body": "V annexu byly zásoby, nádoby, koše a drobné praktické předměty. Hrobka tak nepůsobí jen jako místo zlata, ale i jako výbava pro posmrtný život.",
-      "facts": ["Drobné předměty jsou důležité pro pochopení každodennosti a rituálních představ."],
+      "body": "V annexu byly zásoby, nádoby, koše a drobné praktické předměty. Výbava hrobky zahrnovala zlato, rituální předměty i zásoby pro posmrtný život.",
+      "facts": ["Drobné předměty ukazují každodennost i rituální představy."],
       "sourceIds": ["S18"]
     },
     { "id": "senet", "kind": "artifact", "roomId": "annex", "x": 56, "y": 74, "label": "SE", "artifactId": "A10" },
@@ -840,8 +840,8 @@
       "label": "T",
       "title": "Mladý král a nejistá smrt",
       "photoId": "tutankhamun-mummy",
-      "body": "Tutanchamon zemřel mladý, kolem 18-19 let. Přesná příčina smrti není jistá; interpretace je potřeba formulovat opatrně.",
-      "facts": ["Jeho sláva není dána dlouhou vládou, ale zachováním hrobky a pozdějším kulturním dopadem objevu."],
+      "body": "Tutanchamon zemřel mladý, kolem 18-19 let. Přesná příčina smrti zůstává předmětem odborných diskusí.",
+      "facts": ["Jeho dnešní sláva vychází hlavně ze zachování hrobky a kulturního dopadu objevu."],
       "sourceIds": ["S03", "S04"],
       "relatedPersonIds": ["tutankhamun"]
     },
@@ -861,10 +861,10 @@
       "label": "i",
       "title": "Dvě malé mumie",
       "photoId": "small-mummies",
-      "body": "V KV62 byly dvě malé mumie plodů nebo novorozenců, často vykládané jako Tutanchamonovy dcery. Nejde o ostatky dospělé královny Anchesenamon.",
+      "body": "V KV62 byly dvě malé mumie plodů nebo novorozenců, často vykládané jako Tutanchamonovy dcery. Bezpečně doložené ostatky dospělé královny Anchesenamon v KV62 chybí.",
       "facts": [
-        "Tento bod opravuje časté zjednodušení: v hrobce nejsou doložené ostatky dospělé královny.",
-        "Anchesenamon je v této verzi přítomná přes výjev na trůnu a rodinný kontext."
+        "Nález patří k citlivým částem pohřební výbavy a rodinného kontextu.",
+        "Anchesenamon připomíná především výjev na trůnu a rodinný kontext Tutanchamonovy vlády."
       ],
       "sourceIds": ["S02", "S11"],
       "relatedPersonIds": ["tutankhamun", "ankhesenamon"]

@@ -76,6 +76,7 @@ check('plan canvas is plain black without frame grid', /background:\s*#000;/.tes
 check('detail sidebar can scroll in fixed viewport', /height:\s*100vh;/.test(workspaceBlock) && /overflow:\s*auto;/.test(detailPanelBlock) && /max-height:\s*100%;/.test(detailPanelBlock) && !/100vh\s*-\s*108px/.test(planCanvasBlock));
 check('content has no removed progress copy', !/Prohlédnuté|spodním pásu|artifactStrip/.test(JSON.stringify(content)));
 check('default detail has no implementation copy', !/Klikací body v mapě|Texty, souřadnice|JSON souboru/.test(JSON.stringify(content.meta?.defaultDetail ?? {})));
+check('content avoids source meta commentary', !/Zdroje jsou zvolené|práce nestála|obecném shrnutí|U snímků je důležité|dohledatelné autorství|původ a licence|v této variantě|v této verzi|mechanismu aplikace|content\.json|JSON souboru|není [^.!?]+, ale/.test(JSON.stringify(content)));
 check('app keeps factual copy out of JS', !/První schod ke vstupu|Zlatá pohřební maska|Howard Carter/.test(app));
 
 const failed = checks.filter((entry) => !entry.ok);
