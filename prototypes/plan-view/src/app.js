@@ -326,10 +326,7 @@ function renderPhoto(photo) {
   els.photoFrame.hidden = false;
   els.detailPhoto.src = photo.src;
   els.detailPhoto.alt = photo.alt;
-  els.photoCaption.replaceChildren(
-    document.createTextNode(`${photo.caption} ${photo.credit} ${photo.license} `),
-    buildLink(photo.sourceUrl, 'Stránka fotky')
-  );
+  els.photoCaption.replaceChildren(document.createTextNode(`${photo.caption} Zdroj: `), buildLink(photo.sourceUrl, getPhotoSourceLabel(photo)));
 }
 
 function renderDetailSources(sourceIds, photo) {
@@ -344,7 +341,7 @@ function renderDetailSources(sourceIds, photo) {
 
   if (photo) {
     if (sourceIds.length > 0) els.detailSources.append(document.createTextNode(' · '));
-    els.detailSources.append(document.createTextNode('Fotka: '), buildLink(photo.sourceUrl, photo.sourceLabel ?? 'Commons'));
+    els.detailSources.append(document.createTextNode('Fotka: '), buildLink(photo.sourceUrl, getPhotoSourceLabel(photo)));
   }
 }
 
@@ -447,6 +444,10 @@ function resolvePhoto(item) {
   if (item.photo) return item.photo;
   if (!item.photoId) return null;
   return state.data.photos?.find((photo) => photo.id === item.photoId) ?? null;
+}
+
+function getPhotoSourceLabel(photo) {
+  return photo.sourceLabel ?? 'Wikimedia Commons';
 }
 
 function applyRouteFromHash() {

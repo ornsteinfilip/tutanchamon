@@ -20,26 +20,62 @@
     "groups": [
       {
         "title": "Archeologický a prostorový základ",
-        "sourceIds": ["S01", "S02", "S10", "S11", "S16", "S17", "S18", "S20"]
+        "sourceIds": [
+          "S01",
+          "S02",
+          "S10",
+          "S11",
+          "S16",
+          "S17",
+          "S18",
+          "S20"
+        ]
       },
       {
         "title": "Výklad předmětů a historický kontext",
-        "sourceIds": ["S03", "S04", "S05", "S06", "S07", "S08", "S09", "S12"]
+        "sourceIds": [
+          "S03",
+          "S04",
+          "S05",
+          "S06",
+          "S07",
+          "S08",
+          "S09",
+          "S12"
+        ]
       },
       {
         "title": "Fotografie a obrazový materiál",
         "links": [
-          { "label": "Wikimedia Commons: KV62", "url": "https://commons.wikimedia.org/wiki/Category:KV62" },
-          { "label": "3D schéma KV62 podle Theban Mapping Project", "url": "https://www.starovekyegypt.net/wp-content/uploads/hrobka-kv62.jpg" }
+          {
+            "label": "Wikimedia Commons: KV62",
+            "url": "https://commons.wikimedia.org/wiki/Category:KV62"
+          },
+          {
+            "label": "3D schéma KV62 podle Theban Mapping Project",
+            "url": "https://www.starovekyegypt.net/wp-content/uploads/hrobka-kv62.jpg"
+          }
         ]
       }
     ]
   },
   "filters": [
-    { "id": "all", "label": "Vše" },
-    { "id": "artifact", "label": "Předměty" },
-    { "id": "fact", "label": "Fakta" },
-    { "id": "person", "label": "Osoby" }
+    {
+      "id": "all",
+      "label": "Vše"
+    },
+    {
+      "id": "artifact",
+      "label": "Předměty"
+    },
+    {
+      "id": "fact",
+      "label": "Fakta"
+    },
+    {
+      "id": "person",
+      "label": "Osoby"
+    }
   ],
   "sources": [
     {
@@ -161,38 +197,30 @@
       "src": "./assets/hotspots/first-step.jpg",
       "alt": "Skalní schodiště vedoucí ke vstupu do KV62",
       "caption": "Skalní schodiště vedoucí ke vstupu do KV62.",
-      "credit": "Library of Congress / Wikimedia Commons.",
-      "license": "Public domain podle stránky souboru.",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Egypt._Thebes_to_southern_border_of_Egypt._Descent_to_Tutankhaman%27s_tomb_LOC_matpc.17254.jpg",
-      "sourceLabel": "Commons"
+      "sourceLabel": "Wikimedia Commons"
     },
     {
       "id": "carter-team",
       "src": "./assets/hotspots/carter-team.jpg",
       "alt": "Howard Carter, lord Carnarvon a Lady Evelyn Herbert u vstupu do hrobky",
       "caption": "Howard Carter, lord Carnarvon a Lady Evelyn Herbert u vstupu do hrobky.",
-      "credit": "Harry Burton / Griffith Institute Archive, přes Wikimedia Commons.",
-      "license": "Public domain podle stránky souboru.",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Howard_Carter,_Lord_Carnarvon_and_Lady_Evelyn_Herbert_at_Tutankhamen%27s_tomb_(cropped).jpg",
-      "sourceLabel": "Commons"
+      "sourceLabel": "Wikimedia Commons"
     },
     {
       "id": "sealed-doorway",
       "src": "./assets/hotspots/sealed-doorway.jpg",
       "alt": "Neporušená pečeť na jedné ze svatyní v Tutanchamonově hrobce",
       "caption": "Neporušená pečeť na jedné ze svatyní v Tutanchamonově hrobce.",
-      "credit": "Harry Burton / Wikimedia Commons.",
-      "license": "Public domain podle stránky souboru.",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_unbroken_seal_on_Tutankhamun%E2%80%99s_tomb,_1922.jpg",
-      "sourceLabel": "Commons"
+      "sourceLabel": "Wikimedia Commons"
     },
     {
       "id": "kv62-schema",
       "src": "./assets/hotspots/kv62-schema.jpg",
       "alt": "3D model schématu hrobky KV62",
       "caption": "3D model hrobky KV62. Celková délka 30,80 m, plocha 109,83 m² a objem 277,01 m³.",
-      "credit": "Theban Mapping Project, přes StarovekyEgypt.net.",
-      "license": "Licence podle zdrojové stránky.",
       "sourceUrl": "https://www.starovekyegypt.net/wp-content/uploads/hrobka-kv62.jpg",
       "sourceLabel": "StarovekyEgypt.net"
     },
@@ -201,80 +229,64 @@
       "src": "./assets/hotspots/antechamber-glimpse.jpg",
       "alt": "Jihozápadní roh předsíně Tutanchamonovy hrobky s vozy a nábytkem",
       "caption": "Jihozápadní roh předsíně s rozebranými vozy a nábytkem.",
-      "credit": "Harry Burton / Wikimedia Commons.",
-      "license": "Public domain podle stránky souboru.",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tutankhamun_tomb_photographs_2_011.jpg",
-      "sourceLabel": "Commons"
+      "sourceLabel": "Wikimedia Commons"
     },
     {
       "id": "annex-supplies",
       "src": "./assets/hotspots/annex-supplies.jpg",
       "alt": "Drobné předměty z Tutanchamonovy hrobky vystavené jako součást výbavy",
       "caption": "Drobné předměty z Tutanchamonovy hrobky vystavené jako součást výbavy.",
-      "credit": "Wikimedia Commons, stránka souboru s atribucí autora.",
-      "license": "Licence podle stránky souboru.",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:King_Tutankhamun%27s_tomb_goods_gloves_DSC_0880_(1)_(44795620015).jpg",
-      "sourceLabel": "Commons"
+      "sourceLabel": "Wikimedia Commons"
     },
     {
       "id": "tutankhamun-mummy",
       "src": "./assets/hotspots/tutankhamun-mummy.jpg",
       "alt": "Mumie Tutanchamona",
       "caption": "Mumie Tutanchamona.",
-      "credit": "Wikimedia Commons, stránka souboru s atribucí autora.",
-      "license": "Public domain podle stránky souboru.",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mummy_of_Tutankhamun.jpg",
-      "sourceLabel": "Commons"
+      "sourceLabel": "Wikimedia Commons"
     },
     {
       "id": "small-mummies",
       "src": "./assets/hotspots/small-mummies.jpg",
       "alt": "Repliky mumií dcer Tutanchamona",
       "caption": "Repliky mumií dcer Tutanchamona z výstavy Tutankhamun: His Tomb and Treasures.",
-      "credit": "Jan Helebrant / Wikimedia Commons.",
-      "license": "CC0 podle stránky souboru.",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tutankhamun%27s_children_-_the_end_of_the_royal_family.jpg",
-      "sourceLabel": "Commons"
+      "sourceLabel": "Wikimedia Commons"
     },
     {
       "id": "egyptian-workers",
       "src": "./assets/hotspots/egyptian-workers.jpg",
       "alt": "Hussein Abdel Rassoul během práce u výzkumu Tutanchamonovy hrobky",
       "caption": "Hussein Abdel Rassoul během práce u výzkumu Tutanchamonovy hrobky.",
-      "credit": "Harry Burton / Wikimedia Commons.",
-      "license": "Public domain podle stránky souboru.",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hussein_Abdel_Rassoul_a_water_carrier_on_Howard_Carter_Tutankhamun_tomb_excavation_(cropped).jpg",
-      "sourceLabel": "Commons"
+      "sourceLabel": "Wikimedia Commons"
     },
     {
       "id": "ankhesenamon-throne",
       "src": "./assets/tutankhamun/golden-throne.jpg",
       "alt": "Zlatý trůn s výjevem Tutanchamona a Anchesenamon",
       "caption": "Zlatý trůn s výjevem Tutanchamona a Anchesenamon.",
-      "credit": "Wikimedia Commons, stránka souboru s atribucí autora.",
-      "license": "Licence podle stránky souboru.",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Golden_throne_(22674627783).jpg",
-      "sourceLabel": "Commons"
+      "sourceLabel": "Wikimedia Commons"
     },
     {
       "id": "burial-chamber",
       "src": "./assets/tutankhamun/sarcophagus.jpg",
       "alt": "Pohřební komora KV62 se sarkofágem",
       "caption": "Pohřební komora KV62 se sarkofágem.",
-      "credit": "Wikimedia Commons, stránka souboru s atribucí autora.",
-      "license": "Licence podle stránky souboru.",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tutankhamun_KV62_burial_chamber_and_sarcophagus.jpg",
-      "sourceLabel": "Commons"
+      "sourceLabel": "Wikimedia Commons"
     },
     {
       "id": "treasury-anubis",
       "src": "./assets/tutankhamun/anubis-shrine.jpg",
       "alt": "Svatyně s Anubisem z Tutanchamonovy hrobky",
       "caption": "Svatyně s Anubisem z Tutanchamonovy hrobky.",
-      "credit": "Wikimedia Commons, stránka souboru s atribucí autora.",
-      "license": "Licence podle stránky souboru.",
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Anubis-shrine_(cropped).jpg",
-      "sourceLabel": "Commons"
+      "sourceLabel": "Wikimedia Commons"
     }
   ],
   "rooms": [
@@ -294,7 +306,11 @@
         "Schodiště mělo 16 skalních stupňů.",
         "Objev je spojen s Howardem Carterem, lordem Carnarvonem a místními egyptskými pracovníky expedice."
       ],
-      "sourceIds": ["S01", "S16", "S17"]
+      "sourceIds": [
+        "S01",
+        "S16",
+        "S17"
+      ]
     },
     {
       "id": "corridor",
@@ -313,7 +329,9 @@
         "Maximální výška je 3,68 m, minimální šířka 0,66 m a maximální šířka 7,86 m.",
         "Kompaktní půdorys vysvětluje husté rozmístění předmětů."
       ],
-      "sourceIds": ["S05"]
+      "sourceIds": [
+        "S05"
+      ]
     },
     {
       "id": "antechamber",
@@ -331,7 +349,10 @@
         "Předměty v předsíni ležely hustě pohromadě v malém prostoru.",
         "Místnost dobře dokládá mimořádný rozsah dochované pohřební výbavy."
       ],
-      "sourceIds": ["S01", "S02"]
+      "sourceIds": [
+        "S01",
+        "S02"
+      ]
     },
     {
       "id": "annex",
@@ -349,7 +370,9 @@
         "V annexu se objevují nádoby, koše, zásoby a drobnější výbava.",
         "Nízký vstup z předsíně ukazuje členitý a kompaktní půdorys KV62."
       ],
-      "sourceIds": ["S18"]
+      "sourceIds": [
+        "S18"
+      ]
     },
     {
       "id": "burial",
@@ -367,7 +390,10 @@
         "Výzdoba hrobky je výraznější právě v pohřební komoře.",
         "Tutanchamon zemřel mladý, přibližně kolem 18 až 19 let."
       ],
-      "sourceIds": ["S04", "S10"]
+      "sourceIds": [
+        "S04",
+        "S10"
+      ]
     },
     {
       "id": "treasury",
@@ -385,15 +411,43 @@
         "Kanopická výbava souvisí s uložením vnitřních orgánů zemřelého.",
         "V KV62 byly také dvě malé mumie plodů nebo novorozenců, často vykládané jako Tutanchamonovy dcery."
       ],
-      "sourceIds": ["S11", "S12"]
+      "sourceIds": [
+        "S11",
+        "S12"
+      ]
     }
   ],
   "connectors": [
-    { "x": 21, "y": 55, "w": 3, "h": 3 },
-    { "x": 48, "y": 55, "w": 4, "h": 4 },
-    { "x": 51, "y": 67, "w": 5, "h": 5 },
-    { "x": 68, "y": 46, "w": 4, "h": 4 },
-    { "x": 80, "y": 39, "w": 4, "h": 3 }
+    {
+      "x": 21,
+      "y": 55,
+      "w": 3,
+      "h": 3
+    },
+    {
+      "x": 48,
+      "y": 55,
+      "w": 4,
+      "h": 4
+    },
+    {
+      "x": 51,
+      "y": 67,
+      "w": 5,
+      "h": 5
+    },
+    {
+      "x": 68,
+      "y": 46,
+      "w": 4,
+      "h": 4
+    },
+    {
+      "x": 80,
+      "y": 39,
+      "w": 4,
+      "h": 3
+    }
   ],
   "people": [
     {
@@ -402,7 +456,10 @@
       "role": "Mladý faraon 18. dynastie",
       "photoId": "tutankhamun-mummy",
       "body": "Stal se králem jako dítě, vládl přibližně devět let a zemřel kolem 18-19 let. Jeho dnešní sláva stojí hlavně na mimořádně zachované hrobce.",
-      "sourceIds": ["S03", "S04"]
+      "sourceIds": [
+        "S03",
+        "S04"
+      ]
     },
     {
       "id": "ankhesenamon",
@@ -410,7 +467,10 @@
       "role": "Královna a manželka Tutanchamona",
       "photoId": "ankhesenamon-throne",
       "body": "S Tutanchamonem je spojena například výjevem na zlatém trůnu. Bezpečná identifikace jejího hrobu nebo mumie v KV62 chybí.",
-      "sourceIds": ["S02", "S06"]
+      "sourceIds": [
+        "S02",
+        "S06"
+      ]
     },
     {
       "id": "carter",
@@ -418,7 +478,10 @@
       "role": "Vedoucí archeologického výzkumu",
       "photoId": "carter-team",
       "body": "Britský archeolog, který vedl tým při odkrytí a dokumentaci KV62 v roce 1922.",
-      "sourceIds": ["S01", "S02"]
+      "sourceIds": [
+        "S01",
+        "S02"
+      ]
     },
     {
       "id": "carnarvon",
@@ -426,7 +489,9 @@
       "role": "Financování expedice",
       "photoId": "carter-team",
       "body": "Mecenáš Carterova výzkumu v Údolí králů.",
-      "sourceIds": ["S01"]
+      "sourceIds": [
+        "S01"
+      ]
     },
     {
       "id": "egyptian-workers",
@@ -434,7 +499,10 @@
       "role": "Každodenní práce v terénu",
       "photoId": "egyptian-workers",
       "body": "Na objevu, odkrývání hrobky a manipulaci s nálezy se vedle Cartera podíleli místní pracovníci a předáci.",
-      "sourceIds": ["S01", "S02"]
+      "sourceIds": [
+        "S01",
+        "S02"
+      ]
     }
   ],
   "artifacts": [
@@ -448,13 +516,14 @@
         "Maska tvořila ochrannou část pohřební výbavy mumie.",
         "Její sláva souvisí s tím, že KV62 byla nalezena mimořádně zachovaná."
       ],
-      "sourceIds": ["S02", "S06"],
+      "sourceIds": [
+        "S02",
+        "S06"
+      ],
       "photo": {
         "src": "./assets/tutankhamun/golden-mask.jpg",
         "alt": "Zlatá pohřební maska Tutanchamona",
         "caption": "Zlatá pohřební maska Tutanchamona.",
-        "credit": "Wikimedia Commons, stránka souboru s atribucí autora.",
-        "license": "Licence podle stránky souboru.",
         "sourceUrl": "https://commons.wikimedia.org/wiki/File:Golden_mask_of_Tutankhamun.jpg"
       }
     },
@@ -468,13 +537,13 @@
         "Sarkofág a rakve ukazují postupné vrstvy ochrany těla.",
         "Sarkofág stojí v centru pohřební komory."
       ],
-      "sourceIds": ["S10"],
+      "sourceIds": [
+        "S10"
+      ],
       "photo": {
         "src": "./assets/tutankhamun/sarcophagus.jpg",
         "alt": "Pohřební komora KV62 se sarkofágem",
         "caption": "Pohřební komora KV62 se sarkofágem.",
-        "credit": "Wikimedia Commons, stránka souboru s atribucí autora.",
-        "license": "Licence podle stránky souboru.",
         "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tutankhamun_KV62_burial_chamber_and_sarcophagus.jpg"
       }
     },
@@ -488,13 +557,14 @@
         "Rakve byly součástí vícevrstvé pohřební ochrany.",
         "Dochované předměty je potřeba odlišovat od replik a pozdějších modelů."
       ],
-      "sourceIds": ["S02", "S10"],
+      "sourceIds": [
+        "S02",
+        "S10"
+      ],
       "photo": {
         "src": "./assets/tutankhamun/inner-coffin.jpg",
         "alt": "Vnitřní rakev Tutanchamona",
         "caption": "Vnitřní rakev Tutanchamona.",
-        "credit": "Wikimedia Commons, stránka souboru s atribucí autora.",
-        "license": "Licence podle stránky souboru.",
         "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tutanhkamun_innermost_coffin.jpg"
       }
     },
@@ -508,13 +578,14 @@
         "Kanopická schrána měla čtyři dutiny pro miniaturní rakvičky.",
         "Svatyně a ochranné postavy vyjadřují ochranu zemřelého krále."
       ],
-      "sourceIds": ["S11", "S12"],
+      "sourceIds": [
+        "S11",
+        "S12"
+      ],
       "photo": {
         "src": "./assets/tutankhamun/canopic-shrine.jpg",
         "alt": "Kanopická svatyně Tutanchamona",
         "caption": "Kanopická svatyně Tutanchamona.",
-        "credit": "Wikimedia Commons, stránka souboru s atribucí autora.",
-        "license": "Licence podle stránky souboru.",
         "sourceUrl": "https://commons.wikimedia.org/wiki/File:Canopic_shrine_of_Tutankhamun,_1333-1323_BCE;_Egyptian_Museum,_Cairo_(1).jpg"
       }
     },
@@ -528,13 +599,13 @@
         "Tento předmět patřil do pokladnice.",
         "Nacházel se za pohřební komorou v pokladnici."
       ],
-      "sourceIds": ["S11"],
+      "sourceIds": [
+        "S11"
+      ],
       "photo": {
         "src": "./assets/tutankhamun/anubis-shrine.jpg",
         "alt": "Anubis na schráně z Tutanchamonovy hrobky",
         "caption": "Anubis na schráně z Tutanchamonovy hrobky.",
-        "credit": "Wikimedia Commons, stránka souboru s atribucí autora.",
-        "license": "Licence podle stránky souboru.",
         "sourceUrl": "https://commons.wikimedia.org/wiki/File:Anubis-shrine_(cropped).jpg"
       }
     },
@@ -548,13 +619,14 @@
         "Výjev na trůnu zachycuje královský pár v intimnější scéně.",
         "Bezpečně určené pozůstatky královny v KV62 chybí."
       ],
-      "sourceIds": ["S02", "S06"],
+      "sourceIds": [
+        "S02",
+        "S06"
+      ],
       "photo": {
         "src": "./assets/tutankhamun/golden-throne.jpg",
         "alt": "Zlatý trůn Tutanchamona",
         "caption": "Zlatý trůn Tutanchamona.",
-        "credit": "Wikimedia Commons, stránka souboru s atribucí autora.",
-        "license": "Licence podle stránky souboru.",
         "sourceUrl": "https://commons.wikimedia.org/wiki/File:Golden_throne_(22674627783).jpg"
       }
     },
@@ -568,13 +640,14 @@
         "Předměty byly v předsíni velmi nahuštěné.",
         "Velké části vozů patřily k výrazným objektům v malé předsíni."
       ],
-      "sourceIds": ["S02", "S05"],
+      "sourceIds": [
+        "S02",
+        "S05"
+      ],
       "photo": {
         "src": "./assets/tutankhamun/chariot.jpg",
         "alt": "Královský vůz spojený s Tutanchamonovou výbavou",
         "caption": "Královský vůz spojený s Tutanchamonovou výbavou.",
-        "credit": "Wikimedia Commons, stránka souboru s atribucí autora.",
-        "license": "Licence podle stránky souboru.",
         "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chariot_of_Tutankhamun.jpg"
       }
     },
@@ -588,13 +661,13 @@
         "Zvířecí forma patřila k rituálnímu významu lehátka.",
         "Tvar lehátek patří k nejlépe rozpoznatelným prvkům předsíně."
       ],
-      "sourceIds": ["S02"],
+      "sourceIds": [
+        "S02"
+      ],
       "photo": {
         "src": "./assets/tutankhamun/ritual-bed.jpg",
         "alt": "Rituální lehátko z Tutanchamonovy hrobky",
         "caption": "Rituální lehátko z Tutanchamonovy hrobky.",
-        "credit": "Wikimedia Commons, stránka souboru s atribucí autora.",
-        "license": "Licence podle stránky souboru.",
         "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tutankhamun-bed.jpg"
       }
     },
@@ -608,13 +681,14 @@
         "Jejich poloha pomáhá divákovi pochopit vztah předsíně a pohřební komory.",
         "Strážní sochy jsou výrazný příklad toho, že prostor KV62 funguje jako sled symbolických hranic."
       ],
-      "sourceIds": ["S02", "S20"],
+      "sourceIds": [
+        "S02",
+        "S20"
+      ],
       "photo": {
         "src": "./assets/tutankhamun/guardian-statue.jpg",
         "alt": "Strážní socha z Tutanchamonovy výbavy",
         "caption": "Strážní socha z Tutanchamonovy výbavy.",
-        "credit": "Wikimedia Commons, stránka souboru s atribucí autora.",
-        "license": "Licence podle stránky souboru.",
         "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tutankhamun_-_Treasures_of_the_Golden_Pharaoh_(49583475798).jpg"
       }
     },
@@ -628,13 +702,15 @@
         "Senet souvisí s představami o cestě a posmrtném životě.",
         "Herní předměty patřily do širší výbavy pro život po smrti."
       ],
-      "sourceIds": ["S02", "S08", "S18"],
+      "sourceIds": [
+        "S02",
+        "S08",
+        "S18"
+      ],
       "photo": {
         "src": "./assets/tutankhamun/senet.jpg",
         "alt": "Herní předměty spojené se senetem z Tutanchamonovy hrobky",
         "caption": "Herní předměty spojené se senetem z Tutanchamonovy hrobky.",
-        "credit": "Wikimedia Commons, stránka souboru s atribucí autora.",
-        "license": "Licence podle stránky souboru.",
         "sourceUrl": "https://commons.wikimedia.org/wiki/File:Senet_game_pieces_(Tutankhamun).jpg"
       }
     },
@@ -648,13 +724,14 @@
         "Meteoritické železo bylo ve starověku mimořádně cenné.",
         "Tvar čepele a zdobená rukojeť patří k hlavním znakům předmětu."
       ],
-      "sourceIds": ["S02", "S07"],
+      "sourceIds": [
+        "S02",
+        "S07"
+      ],
       "photo": {
         "src": "./assets/tutankhamun/iron-dagger.jpg",
         "alt": "Železná dýka Tutanchamona",
         "caption": "Železná dýka Tutanchamona.",
-        "credit": "Wikimedia Commons, stránka souboru s atribucí autora.",
-        "license": "Licence podle stránky souboru.",
         "sourceUrl": "https://commons.wikimedia.org/wiki/File:Kairo_Museum_Eisendolch_Tutanchamun_01.jpg"
       }
     },
@@ -668,13 +745,15 @@
         "Modely lodí zastupovaly dopravu, služebnictvo a zásobování pro posmrtný svět.",
         "Některé modely obsahovaly posádku nebo vybavení."
       ],
-      "sourceIds": ["S02", "S09", "S18"],
+      "sourceIds": [
+        "S02",
+        "S09",
+        "S18"
+      ],
       "photo": {
         "src": "./assets/tutankhamun/model-boat.jpg",
         "alt": "Modelová loď z Tutanchamonovy výbavy",
         "caption": "Modelová loď z Tutanchamonovy výbavy.",
-        "credit": "Wikimedia Commons, stránka souboru s atribucí autora.",
-        "license": "Licence podle stránky souboru.",
         "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tutankhamon_Model_Boat_with_Servants_(9797292594).jpg"
       }
     },
@@ -688,13 +767,14 @@
         "Lotos je v egyptském prostředí výrazný symbol obnovy.",
         "I drobnější předměty patřily k významné symbolické výbavě hrobky."
       ],
-      "sourceIds": ["S02", "S06"],
+      "sourceIds": [
+        "S02",
+        "S06"
+      ],
       "photo": {
         "src": "./assets/tutankhamun/lotus-cup.jpg",
         "alt": "Alabastrový lotosový pohár Tutanchamona",
         "caption": "Alabastrový lotosový pohár Tutanchamona.",
-        "credit": "Wikimedia Commons, stránka souboru s atribucí autora.",
-        "license": "Licence podle stránky souboru.",
         "sourceUrl": "https://commons.wikimedia.org/wiki/File:Alabaster_Chalice.jpg"
       }
     },
@@ -708,13 +788,14 @@
         "Původně měl střídavě hnědá a bílá pštrosí pera.",
         "Dochované držadlo a výzdoba připomínají královský lov a reprezentaci."
       ],
-      "sourceIds": ["S02", "S06"],
+      "sourceIds": [
+        "S02",
+        "S06"
+      ],
       "photo": {
         "src": "./assets/tutankhamun/ostrich-fan.jpg",
         "alt": "Vějíř z Tutanchamonovy hrobky",
         "caption": "Vějíř z Tutanchamonovy hrobky.",
-        "credit": "Wikimedia Commons, stránka souboru s atribucí autora.",
-        "license": "Licence podle stránky souboru.",
         "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tutankhamun%E2%80%99s_Fan.jpg"
       }
     }
@@ -730,8 +811,13 @@
       "title": "První schod",
       "photoId": "first-step",
       "body": "První schod ke vstupu do KV62 byl nalezen 4. listopadu 1922. Objev otevřel cestu k odkrytí zapečetěného vstupu.",
-      "facts": ["Schodiště KV62 mělo 16 skalních stupňů."],
-      "sourceIds": ["S01", "S16"]
+      "facts": [
+        "Schodiště KV62 mělo 16 skalních stupňů."
+      ],
+      "sourceIds": [
+        "S01",
+        "S16"
+      ]
     },
     {
       "id": "howard-carter",
@@ -770,8 +856,12 @@
       "title": "První zapečetěný vstup",
       "photoId": "sealed-doorway",
       "body": "U paty schodiště byla první zapečetěná přepážka. V půdorysu je vidět jako hranice mezi vstupem a chodbou.",
-      "facts": ["Pečeti a přepážky pomáhají určit stav hrobky při objevu."],
-      "sourceIds": ["S17"]
+      "facts": [
+        "Pečeti a přepážky pomáhají určit stav hrobky při objevu."
+      ],
+      "sourceIds": [
+        "S17"
+      ]
     },
     {
       "id": "kv62-comparison",
@@ -804,11 +894,51 @@
       "label": "A",
       "personId": "ankhesenamon"
     },
-    { "id": "golden-throne", "kind": "artifact", "roomId": "antechamber", "x": 58, "y": 54, "label": "TR", "artifactId": "A06" },
-    { "id": "chariot", "kind": "artifact", "roomId": "antechamber", "x": 64, "y": 52, "label": "VU", "artifactId": "A07" },
-    { "id": "ritual-bed", "kind": "artifact", "roomId": "antechamber", "x": 58, "y": 64, "label": "LE", "artifactId": "A08" },
-    { "id": "guardian-statues", "kind": "artifact", "roomId": "antechamber", "x": 71, "y": 57, "label": "ST", "artifactId": "A09" },
-    { "id": "lotus-cup", "kind": "artifact", "roomId": "antechamber", "x": 66, "y": 64, "label": "PO", "artifactId": "A13" },
+    {
+      "id": "golden-throne",
+      "kind": "artifact",
+      "roomId": "antechamber",
+      "x": 58,
+      "y": 54,
+      "label": "TR",
+      "artifactId": "A06"
+    },
+    {
+      "id": "chariot",
+      "kind": "artifact",
+      "roomId": "antechamber",
+      "x": 64,
+      "y": 52,
+      "label": "VU",
+      "artifactId": "A07"
+    },
+    {
+      "id": "ritual-bed",
+      "kind": "artifact",
+      "roomId": "antechamber",
+      "x": 58,
+      "y": 64,
+      "label": "LE",
+      "artifactId": "A08"
+    },
+    {
+      "id": "guardian-statues",
+      "kind": "artifact",
+      "roomId": "antechamber",
+      "x": 71,
+      "y": 57,
+      "label": "ST",
+      "artifactId": "A09"
+    },
+    {
+      "id": "lotus-cup",
+      "kind": "artifact",
+      "roomId": "antechamber",
+      "x": 66,
+      "y": 64,
+      "label": "PO",
+      "artifactId": "A13"
+    },
     {
       "id": "annex-doorway",
       "kind": "fact",
@@ -819,8 +949,12 @@
       "title": "Nízký vstup do annexu",
       "photoId": "antechamber-glimpse",
       "body": "Annex byl přístupný nízkým bočním vstupem z předsíně. Odbočka vede z hlavní osy hrobky směrem dolů v půdorysu.",
-      "facts": ["Odbočka ukazuje kompaktní členění KV62."],
-      "sourceIds": ["S18"]
+      "facts": [
+        "Odbočka ukazuje kompaktní členění KV62."
+      ],
+      "sourceIds": [
+        "S18"
+      ]
     },
     {
       "id": "storage-supplies",
@@ -833,8 +967,24 @@
       "photoId": "annex-supplies",
       "detailRoomId": "annex"
     },
-    { "id": "senet", "kind": "artifact", "roomId": "annex", "x": 52, "y": 78, "label": "SE", "artifactId": "A10" },
-    { "id": "model-boat", "kind": "artifact", "roomId": "annex", "x": 58, "y": 80, "label": "LO", "artifactId": "A12" },
+    {
+      "id": "senet",
+      "kind": "artifact",
+      "roomId": "annex",
+      "x": 52,
+      "y": 78,
+      "label": "SE",
+      "artifactId": "A10"
+    },
+    {
+      "id": "model-boat",
+      "kind": "artifact",
+      "roomId": "annex",
+      "x": 58,
+      "y": 80,
+      "label": "LO",
+      "artifactId": "A12"
+    },
     {
       "id": "young-king-death",
       "kind": "person",
@@ -844,13 +994,69 @@
       "label": "T",
       "personId": "tutankhamun"
     },
-    { "id": "sarcophagus", "kind": "artifact", "roomId": "burial", "x": 72, "y": 39, "label": "SA", "artifactId": "A02" },
-    { "id": "inner-coffin", "kind": "artifact", "roomId": "burial", "x": 76, "y": 38, "label": "RA", "artifactId": "A03" },
-    { "id": "burial-mask", "kind": "artifact", "roomId": "burial", "x": 75, "y": 43, "label": "MA", "artifactId": "A01" },
-    { "id": "iron-dagger", "kind": "artifact", "roomId": "burial", "x": 70, "y": 44, "label": "DY", "artifactId": "A11" },
-    { "id": "ostrich-fan", "kind": "artifact", "roomId": "burial", "x": 80, "y": 44, "label": "VE", "artifactId": "A14" },
-    { "id": "anubis-shrine", "kind": "artifact", "roomId": "treasury", "x": 86, "y": 38, "label": "AN", "artifactId": "A05" },
-    { "id": "canopic-equipment", "kind": "artifact", "roomId": "treasury", "x": 92, "y": 39, "label": "KA", "artifactId": "A04" },
+    {
+      "id": "sarcophagus",
+      "kind": "artifact",
+      "roomId": "burial",
+      "x": 72,
+      "y": 39,
+      "label": "SA",
+      "artifactId": "A02"
+    },
+    {
+      "id": "inner-coffin",
+      "kind": "artifact",
+      "roomId": "burial",
+      "x": 76,
+      "y": 38,
+      "label": "RA",
+      "artifactId": "A03"
+    },
+    {
+      "id": "burial-mask",
+      "kind": "artifact",
+      "roomId": "burial",
+      "x": 75,
+      "y": 43,
+      "label": "MA",
+      "artifactId": "A01"
+    },
+    {
+      "id": "iron-dagger",
+      "kind": "artifact",
+      "roomId": "burial",
+      "x": 70,
+      "y": 44,
+      "label": "DY",
+      "artifactId": "A11"
+    },
+    {
+      "id": "ostrich-fan",
+      "kind": "artifact",
+      "roomId": "burial",
+      "x": 80,
+      "y": 44,
+      "label": "VE",
+      "artifactId": "A14"
+    },
+    {
+      "id": "anubis-shrine",
+      "kind": "artifact",
+      "roomId": "treasury",
+      "x": 86,
+      "y": 38,
+      "label": "AN",
+      "artifactId": "A05"
+    },
+    {
+      "id": "canopic-equipment",
+      "kind": "artifact",
+      "roomId": "treasury",
+      "x": 92,
+      "y": 39,
+      "label": "KA",
+      "artifactId": "A04"
+    },
     {
       "id": "small-mummies",
       "kind": "fact",
@@ -865,7 +1071,10 @@
         "Nález patří k citlivým částem pohřební výbavy a rodinného kontextu.",
         "Anchesenamon připomíná především výjev na trůnu a rodinný kontext Tutanchamonovy vlády."
       ],
-      "sourceIds": ["S02", "S11"]
+      "sourceIds": [
+        "S02",
+        "S11"
+      ]
     }
   ]
 }

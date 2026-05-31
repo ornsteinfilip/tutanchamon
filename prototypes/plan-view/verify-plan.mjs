@@ -81,6 +81,8 @@ check('intro entry uses dedicated button', /id="introEnter"/.test(index) && /int
 check('intro removed drawn entrance elements', !/class="cliffWall"|class="tombEntrance"|class="stairCut"|class="sun"/.test(index));
 check('detail panel has no fact list UI', !/factList|renderFacts/.test(index + app));
 check('detail source label opens source modal', /buildSourcesIndexLink\('Zdroje:'\)/.test(app) && /href = '#sourcesOverlay'/.test(app) && /openSources\(\)/.test(app));
+check('photo captions use concise linked source labels', /photo\.caption} Zdroj:/.test(app) && /getPhotoSourceLabel\(photo\)/.test(app) && !/Stránka fotky|photo\.credit|photo\.license/.test(app));
+check('photo metadata omits attribution prose', !/credit|license|stránka souboru|atribucí autora|Licence podle|Public domain podle|CC0 podle|sourceLabel": "Commons"/.test(JSON.stringify(content)));
 check('sources modal is presentation style', Array.isArray(content.sourcePresentation?.groups) && content.sourcePresentation.groups.length >= 3 && /sourcePresentation/.test(app + styles) && /buildSourceLinkLine/.test(app) && !/sourceItem|repeat\(auto-fit/.test(app + styles));
 check('sources modal has links without explanatory paragraphs', !content.sourcePresentation?.intro && !content.sourcePresentation?.note && content.sourcePresentation.groups.every((group) => !group.body) && !/sourceIntro|sourceNote|group\.body/.test(app + styles));
 check('frontend hides numeric source shortcuts', !/\$\{source\.id\}:|buildLink\(source\.url, source\.id\)/.test(app));
