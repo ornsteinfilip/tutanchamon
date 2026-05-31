@@ -264,6 +264,7 @@ function selectPerson(personId, options = {}) {
 
   state.activeRoomId = options.roomId ?? hotspot?.roomId ?? null;
   state.activeHotspotId = options.hotspotId ?? hotspot?.id ?? null;
+  if (state.activeHotspotId) state.viewedHotspots.add(state.activeHotspotId);
   showDetail({
     title: person.name,
     body: person.body,
