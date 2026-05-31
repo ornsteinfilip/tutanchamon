@@ -731,22 +731,34 @@
       "photoId": "first-step",
       "body": "První schod ke vstupu do KV62 byl nalezen 4. listopadu 1922. Objev otevřel cestu k odkrytí zapečetěného vstupu.",
       "facts": ["Schodiště KV62 mělo 16 skalních stupňů."],
-      "sourceIds": ["S01", "S16"],
-      "relatedPersonIds": ["carter", "carnarvon", "egyptian-workers"]
+      "sourceIds": ["S01", "S16"]
     },
     {
-      "id": "carter-team",
+      "id": "howard-carter",
       "kind": "person",
       "roomId": "entrance",
       "x": 17,
       "y": 47,
       "label": "C",
-      "title": "Carterův tým",
-      "photoId": "carter-team",
-      "body": "Hrobku objevil tým Howarda Cartera s podporou lorda Carnarvona. Práce v terénu stála také na egyptských dělnících a předácích.",
-      "facts": ["Objev byl týmovou a dokumentační prací terénní expedice."],
-      "sourceIds": ["S01", "S02"],
-      "relatedPersonIds": ["carter", "carnarvon", "egyptian-workers"]
+      "personId": "carter"
+    },
+    {
+      "id": "lord-carnarvon",
+      "kind": "person",
+      "roomId": "entrance",
+      "x": 20,
+      "y": 43,
+      "label": "Ca",
+      "personId": "carnarvon"
+    },
+    {
+      "id": "egyptian-workers-hotspot",
+      "kind": "person",
+      "roomId": "entrance",
+      "x": 21,
+      "y": 51,
+      "label": "E",
+      "personId": "egyptian-workers"
     },
     {
       "id": "sealed-doorway",
@@ -782,6 +794,15 @@
       "title": "Předsíň",
       "photoId": "antechamber-glimpse",
       "detailRoomId": "antechamber"
+    },
+    {
+      "id": "ankhesenamon-person",
+      "kind": "person",
+      "roomId": "antechamber",
+      "x": 62,
+      "y": 47,
+      "label": "A",
+      "personId": "ankhesenamon"
     },
     { "id": "golden-throne", "kind": "artifact", "roomId": "antechamber", "x": 58, "y": 54, "label": "TR", "artifactId": "A06" },
     { "id": "chariot", "kind": "artifact", "roomId": "antechamber", "x": 64, "y": 52, "label": "VU", "artifactId": "A07" },
@@ -821,12 +842,7 @@
       "x": 80,
       "y": 29,
       "label": "T",
-      "title": "Mladý král a nejistá smrt",
-      "photoId": "tutankhamun-mummy",
-      "body": "Tutanchamon zemřel mladý, kolem 18-19 let. Přesná příčina smrti zůstává předmětem odborných diskusí.",
-      "facts": ["Jeho dnešní sláva vychází hlavně ze zachování hrobky a kulturního dopadu objevu."],
-      "sourceIds": ["S03", "S04"],
-      "relatedPersonIds": ["tutankhamun"]
+      "personId": "tutankhamun"
     },
     { "id": "sarcophagus", "kind": "artifact", "roomId": "burial", "x": 72, "y": 39, "label": "SA", "artifactId": "A02" },
     { "id": "inner-coffin", "kind": "artifact", "roomId": "burial", "x": 76, "y": 38, "label": "RA", "artifactId": "A03" },
@@ -849,8 +865,7 @@
         "Nález patří k citlivým částem pohřební výbavy a rodinného kontextu.",
         "Anchesenamon připomíná především výjev na trůnu a rodinný kontext Tutanchamonovy vlády."
       ],
-      "sourceIds": ["S02", "S11"],
-      "relatedPersonIds": ["tutankhamun", "ankhesenamon"]
+      "sourceIds": ["S02", "S11"]
     }
   ]
 }

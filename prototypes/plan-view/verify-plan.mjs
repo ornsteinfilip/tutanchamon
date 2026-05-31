@@ -37,6 +37,10 @@ function resolvePhoto(item) {
 }
 
 function resolveHotspotPhoto(hotspot) {
+  if (hotspot.personId) {
+    const person = content.people.find((entry) => entry.id === hotspot.personId);
+    return resolvePhoto(person);
+  }
   if (hotspot.kind !== 'artifact') return resolvePhoto(hotspot);
   const artifact = content.artifacts.find((entry) => entry.id === hotspot.artifactId);
   return resolvePhoto(artifact);
@@ -54,9 +58,14 @@ check('shared photo catalog has source pages', content.photos.every((photo) => p
 check('all rooms have sidebar photos', content.rooms.every((room) => localPhotoExists(resolvePhoto(room))));
 check('all people have sidebar photos', content.people.every((person) => localPhotoExists(resolvePhoto(person))));
 check('all hotspots have icon and sidebar photos', content.hotspots.every((hotspot) => localPhotoExists(resolveHotspotPhoto(hotspot))));
+check('people linked from details are direct map hotspots', ['carter', 'carnarvon', 'egyptian-workers', 'tutankhamun', 'ankhesenamon'].every((personId) => content.hotspots.some((hotspot) => hotspot.personId === personId)));
 check('hotspots avoid room title corners', [
   ['first-step', 13, 62],
+  ['howard-carter', 17, 47],
+  ['lord-carnarvon', 20, 43],
+  ['egyptian-workers-hotspot', 21, 51],
   ['sealed-doorway', 25, 61],
+  ['ankhesenamon-person', 62, 47],
   ['golden-throne', 58, 54],
   ['annex-doorway', 52, 70],
   ['senet', 52, 78],
@@ -78,6 +87,7 @@ check('frontend hides numeric source shortcuts', !/\$\{source\.id\}:|buildLink\(
 check('room overview hotspots share room details', hotspotMap.get('kv62-comparison')?.detailRoomId === 'corridor' && hotspotMap.get('first-glimpse')?.detailRoomId === 'antechamber' && hotspotMap.get('storage-supplies')?.detailRoomId === 'annex' && /hotspot\.detailRoomId/.test(app));
 check('detail selections write route hashes', /updateRouteHash\('room', room\.id\)/.test(app) && /updateRouteHash\('hotspot', hotspot\.id\)/.test(app) && /updateRouteHash\('person', person\.id\)/.test(app));
 check('route hashes reopen selected details', /applyRouteFromHash\(\)/.test(app) && /parseRouteHash/.test(app) && /window\.addEventListener\('hashchange', handleRouteChange\)/.test(app) && /window\.addEventListener\('popstate', handleRouteChange\)/.test(app) && /route\.type === 'room'/.test(app) && /route\.type === 'hotspot'/.test(app) && /route\.type === 'person'/.test(app));
+check('detail panel has no cross-link chips', !/relatedPeople|relatedPersonIds|personChip|renderRelatedPeople/.test(index + app + styles + JSON.stringify(content)));
 check('topbar has no variant eyebrow', !/modeEyebrow|variantTitle|Půdorysná prohlídka/.test(index + app + JSON.stringify(content)));
 check('detail panel has no kicker or subtitle UI', !/detailKicker|detailMeta|class="meta"|artifact\.short|getRoomTitle|Předsíň plná výbavy|Vozy a jejich části v předsíni/.test(index + app + JSON.stringify(content)));
 check('layout has no left sidebar or footer UI', !/mapPanel|roomList|renderRoomList|bottomBar|statusText|artifactStrip|artifactSlot|renderArtifactStrip/.test(index + app));

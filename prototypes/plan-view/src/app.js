@@ -17,7 +17,6 @@ const els = {
   planCanvas: document.getElementById('planCanvas'),
   detailTitle: document.getElementById('detailTitle'),
   detailBody: document.getElementById('detailBody'),
-  relatedPeople: document.getElementById('relatedPeople'),
   detailSources: document.getElementById('detailSources'),
   photoFrame: document.getElementById('photoFrame'),
   detailPhoto: document.getElementById('detailPhoto'),
@@ -221,10 +220,19 @@ function selectHotspot(hotspotId, options = {}) {
   state.activeRoomId = hotspot.roomId;
   state.viewedHotspots.add(hotspot.id);
 
+  if (hotspot.personId) {
+    selectPerson(hotspot.personId, {
+      updateHash: options.updateHash,
+      roomId: hotspot.roomId,
+      hotspotId: hotspot.id
+    });
+    return;
+  }
+
   if (hotspot.detailRoomId) {
     const room = getRoom(hotspot.detailRoomId);
     if (!room) return;
-    showRoomDetail(room, hotspot.relatedPersonIds ?? []);
+    showRoomDetail(room);
   } else if (hotspot.kind === 'artifact') {
     const artifact = state.data.artifacts.find((entry) => entry.id === hotspot.artifactId);
     if (!artifact) return;
@@ -234,7 +242,6 @@ function selectHotspot(hotspotId, options = {}) {
       facts: artifact.facts,
       sourceIds: artifact.sourceIds,
       photo: resolvePhoto(artifact),
-      relatedPersonIds: hotspot.relatedPersonIds ?? []
     });
   } else {
     showDetail({
@@ -243,7 +250,6 @@ function selectHotspot(hotspotId, options = {}) {
       facts: hotspot.facts,
       sourceIds: hotspot.sourceIds,
       photo: resolvePhoto(hotspot),
-      relatedPersonIds: hotspot.relatedPersonIds ?? []
     });
   }
 
@@ -254,29 +260,28 @@ function selectHotspot(hotspotId, options = {}) {
 function selectPerson(personId, options = {}) {
   const person = getPerson(personId);
   if (!person) return;
+  const hotspot = options.hotspotId ? getHotspot(options.hotspotId) : getPersonHotspot(person.id);
 
-  state.activeRoomId = null;
-  state.activeHotspotId = null;
+  state.activeRoomId = options.roomId ?? hotspot?.roomId ?? null;
+  state.activeHotspotId = options.hotspotId ?? hotspot?.id ?? null;
   showDetail({
     title: person.name,
     body: person.body,
     facts: [],
     sourceIds: person.sourceIds,
     photo: resolvePhoto(person),
-    relatedPersonIds: []
   });
   markActiveElements();
   if (options.updateHash) updateRouteHash('person', person.id);
 }
 
-function showRoomDetail(room, relatedPersonIds = []) {
+function showRoomDetail(room) {
   showDetail({
     title: room.title,
     body: room.body,
     facts: room.facts,
     sourceIds: room.sourceIds,
     photo: resolvePhoto(room),
-    relatedPersonIds
   });
 }
 
@@ -297,24 +302,8 @@ function showDefaultDetail() {
 function showDetail(detail) {
   els.detailTitle.textContent = detail.title;
   els.detailBody.textContent = buildDetailText(detail.body, detail.facts ?? []);
-  renderRelatedPeople(detail.relatedPersonIds ?? []);
   renderDetailSources(detail.sourceIds ?? [], detail.photo);
   renderPhoto(detail.photo);
-}
-
-function renderRelatedPeople(personIds) {
-  els.relatedPeople.replaceChildren();
-  for (const personId of personIds) {
-    const person = state.data.people.find((entry) => entry.id === personId);
-    if (!person) continue;
-    const chip = document.createElement('button');
-    chip.type = 'button';
-    chip.className = 'personChip';
-    chip.textContent = person.name;
-    chip.title = person.role;
-    chip.addEventListener('click', () => selectPerson(person.id, { updateHash: true }));
-    els.relatedPeople.append(chip);
-  }
 }
 
 function buildDetailText(body, facts) {
@@ -414,6 +403,7 @@ function markActiveElements() {
 }
 
 function getHotspotTitle(hotspot) {
+  if (hotspot.personId) return getPerson(hotspot.personId)?.name ?? hotspot.title;
   if (hotspot.detailRoomId) return getRoom(hotspot.detailRoomId)?.title ?? hotspot.title;
   if (hotspot.kind !== 'artifact') return hotspot.title;
   const artifact = getArtifact(hotspot.artifactId);
@@ -421,6 +411,7 @@ function getHotspotTitle(hotspot) {
 }
 
 function getHotspotPhoto(hotspot) {
+  if (hotspot.personId) return resolvePhoto(getPerson(hotspot.personId)) ?? resolvePhoto(hotspot);
   if (hotspot.detailRoomId) return resolvePhoto(getRoom(hotspot.detailRoomId)) ?? resolvePhoto(hotspot);
   if (hotspot.kind !== 'artifact') return resolvePhoto(hotspot);
   return resolvePhoto(getArtifact(hotspot.artifactId));
@@ -430,8 +421,16 @@ function getArtifact(artifactId) {
   return state.data.artifacts.find((entry) => entry.id === artifactId);
 }
 
+function getHotspot(hotspotId) {
+  return state.data.hotspots.find((entry) => entry.id === hotspotId);
+}
+
 function getPerson(personId) {
   return state.data.people.find((entry) => entry.id === personId);
+}
+
+function getPersonHotspot(personId) {
+  return state.data.hotspots.find((entry) => entry.personId === personId);
 }
 
 function getRoom(roomId) {
