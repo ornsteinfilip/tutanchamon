@@ -68,7 +68,7 @@ check('hotspots avoid room title corners', [
   ['lord-carnarvon', 17, 31],
   ['egyptian-workers-hotspot', 20, 35],
   ['sealed-doorway', 24, 47],
-  ['ankhesenamon-person', 72, 29],
+  ['ankhesenamon-person', 72, 34],
   ['golden-throne', 69, 47],
   ['annex-doorway', 58, 66],
   ['senet', 51, 77],
