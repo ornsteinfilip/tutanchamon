@@ -3,8 +3,7 @@ const state = {
   activeRoomId: null,
   activeHotspotId: null,
   filter: 'all',
-  viewedHotspots: new Set(),
-  viewedArtifacts: new Set()
+  viewedHotspots: new Set()
 };
 
 const els = {
@@ -15,7 +14,6 @@ const els = {
   modeEyebrow: document.getElementById('modeEyebrow'),
   appTitle: document.getElementById('appTitle'),
   filterTabs: document.getElementById('filterTabs'),
-  roomList: document.getElementById('roomList'),
   planCanvas: document.getElementById('planCanvas'),
   detailTitle: document.getElementById('detailTitle'),
   detailBody: document.getElementById('detailBody'),
@@ -24,8 +22,6 @@ const els = {
   photoFrame: document.getElementById('photoFrame'),
   detailPhoto: document.getElementById('detailPhoto'),
   photoCaption: document.getElementById('photoCaption'),
-  statusText: document.getElementById('statusText'),
-  artifactStrip: document.getElementById('artifactStrip'),
   sourcesButton: document.getElementById('sourcesButton'),
   closeSourcesButton: document.getElementById('closeSourcesButton'),
   sourcesOverlay: document.getElementById('sourcesOverlay'),
@@ -47,9 +43,7 @@ async function init() {
   applyMeta();
   bindEvents();
   renderFilters();
-  renderRoomList();
   renderPlan();
-  renderArtifactStrip();
   renderSources();
   showDefaultDetail();
 }
@@ -62,7 +56,6 @@ function applyMeta() {
   }
   els.modeEyebrow.textContent = meta.variantTitle;
   els.appTitle.textContent = meta.title;
-  els.statusText.textContent = meta.statusIntro;
 }
 
 function bindEvents() {
@@ -84,7 +77,6 @@ function bindEvents() {
 function enterPlan() {
   if (!els.app.classList.contains('is-splash')) return;
   els.app.classList.remove('is-splash');
-  els.statusText.textContent = state.data.meta.statusReady;
 }
 
 function closeSources() {
@@ -117,34 +109,6 @@ function markActiveFilters() {
     const active = button.dataset.filter === state.filter;
     button.classList.toggle('is-active', active);
     button.setAttribute('aria-pressed', String(active));
-  }
-}
-
-function renderRoomList() {
-  els.roomList.replaceChildren();
-
-  for (const room of state.data.rooms) {
-    const button = document.createElement('button');
-    button.type = 'button';
-    button.className = 'roomButton';
-    button.dataset.roomId = room.id;
-    button.addEventListener('click', () => selectRoom(room.id));
-
-    const index = document.createElement('span');
-    index.className = 'roomIndex';
-    index.textContent = room.index;
-
-    const textWrap = document.createElement('span');
-    const name = document.createElement('span');
-    name.className = 'roomName';
-    name.textContent = room.title;
-    const summary = document.createElement('span');
-    summary.className = 'roomSummary';
-    summary.textContent = room.summary;
-    textWrap.append(name, summary);
-
-    button.append(index, textWrap);
-    els.roomList.append(button);
   }
 }
 
@@ -242,7 +206,6 @@ function selectHotspot(hotspotId) {
   if (hotspot.kind === 'artifact') {
     const artifact = state.data.artifacts.find((entry) => entry.id === hotspot.artifactId);
     if (!artifact) return;
-    state.viewedArtifacts.add(artifact.id);
     showDetail({
       title: artifact.name,
       body: artifact.body,
@@ -262,7 +225,6 @@ function selectHotspot(hotspotId) {
   }
 
   markActiveElements();
-  renderArtifactStrip();
 }
 
 function showDefaultDetail() {
@@ -281,9 +243,6 @@ function showDetail(detail) {
   renderRelatedPeople(detail.relatedPersonIds ?? []);
   renderDetailSources(detail.sourceIds ?? [], detail.photo);
   renderPhoto(detail.photo);
-  els.statusText.textContent = detail.photo
-    ? `Detail: ${detail.title}. Fotka je lokálně stažená a zdroj je v popisku.`
-    : `Detail: ${detail.title}.`;
 }
 
 function renderRelatedPeople(personIds) {
@@ -357,25 +316,6 @@ function renderDetailSources(sourceIds, photo) {
   }
 }
 
-function renderArtifactStrip() {
-  els.artifactStrip.replaceChildren();
-
-  for (const artifact of state.data.artifacts) {
-    const slot = document.createElement('button');
-    slot.type = 'button';
-    slot.className = 'artifactSlot';
-    slot.classList.toggle('is-viewed', state.viewedArtifacts.has(artifact.id));
-    slot.textContent = artifact.icon;
-    slot.title = artifact.name;
-    slot.setAttribute('aria-label', artifact.name);
-    slot.addEventListener('click', () => {
-      const hotspot = state.data.hotspots.find((entry) => entry.artifactId === artifact.id);
-      if (hotspot) selectHotspot(hotspot.id);
-    });
-    els.artifactStrip.append(slot);
-  }
-}
-
 function renderSources() {
   els.sourceGrid.replaceChildren();
 
@@ -440,5 +380,4 @@ function showLoadError(error) {
   els.app.classList.remove('is-splash');
   els.detailTitle.textContent = 'Nepodařilo se načíst content.json';
   els.detailBody.textContent = `Spusť tuto variantu přes lokální web server, ne přímo jako file://. ${String(error)}`;
-  els.statusText.textContent = 'Obsah se nenačetl.';
 }
