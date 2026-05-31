@@ -21,7 +21,6 @@ const els = {
   detailTitle: document.getElementById('detailTitle'),
   detailMeta: document.getElementById('detailMeta'),
   detailBody: document.getElementById('detailBody'),
-  factList: document.getElementById('factList'),
   relatedPeople: document.getElementById('relatedPeople'),
   detailSources: document.getElementById('detailSources'),
   photoFrame: document.getElementById('photoFrame'),
@@ -290,23 +289,13 @@ function showDetail(detail) {
   els.detailKicker.textContent = detail.kicker;
   els.detailTitle.textContent = detail.title;
   els.detailMeta.textContent = detail.meta;
-  els.detailBody.textContent = detail.body;
-  renderFacts(detail.facts ?? []);
+  els.detailBody.textContent = buildDetailText(detail.body, detail.facts ?? []);
   renderRelatedPeople(detail.relatedPersonIds ?? []);
   renderDetailSources(detail.sourceIds ?? [], detail.photo);
   renderPhoto(detail.photo);
   els.statusText.textContent = detail.photo
     ? `Detail: ${detail.title}. Fotka je lokálně stažená a zdroj je v popisku.`
     : `Detail: ${detail.title}.`;
-}
-
-function renderFacts(facts) {
-  els.factList.replaceChildren();
-  for (const fact of facts) {
-    const item = document.createElement('li');
-    item.textContent = fact;
-    els.factList.append(item);
-  }
 }
 
 function renderRelatedPeople(personIds) {
@@ -332,6 +321,13 @@ function renderRelatedPeople(personIds) {
     });
     els.relatedPeople.append(chip);
   }
+}
+
+function buildDetailText(body, facts) {
+  const parts = [body, ...facts]
+    .map((part) => String(part ?? '').trim())
+    .filter(Boolean);
+  return parts.join(' ');
 }
 
 function renderPhoto(photo) {

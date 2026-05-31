@@ -28,6 +28,7 @@ check('all artifact photos have source pages', content.artifacts.every((artifact
 check('intro keeps only the title text', content.meta?.intro?.title === 'Hrobka Tutanchamona' && !content.meta.intro.kicker && !content.meta.intro.text);
 check('intro uses the requested local photo', content.meta?.intro?.photo?.src === './assets/intro/tomb-entrance.jpg' && fs.existsSync(new URL('./assets/intro/tomb-entrance.jpg', root)));
 check('intro removed drawn entrance elements', !/class="cliffWall"|class="tombEntrance"|class="stairCut"|class="sun"/.test(index));
+check('detail panel has no fact list UI', !/factList|renderFacts/.test(index + app));
 check('app keeps factual copy out of JS', !/První schod ke vstupu|Zlatá pohřební maska|Howard Carter/.test(app));
 
 const failed = checks.filter((entry) => !entry.ok);
