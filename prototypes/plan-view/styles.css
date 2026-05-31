@@ -405,15 +405,10 @@ h1 {
   letter-spacing: 0;
 }
 
-.meta,
 .sourceLine {
   color: var(--muted);
   font-size: 0.82rem;
   line-height: 1.35;
-}
-
-.meta {
-  margin-top: 6px;
 }
 
 .photoFrame {

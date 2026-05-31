@@ -12,7 +12,6 @@
     "defaultDetail": {
       "kicker": "Půdorys KV62",
       "title": "Hrobka shora",
-      "meta": "Nejde o hru s hráčem. Klikáš na místnosti, předměty a poznámky v půdorysu.",
       "body": "KV62 je malá hrobka v Údolí králů. V této variantě ji sleduješ jako jednoduchý 2D plán: vstupní schodiště, chodba, předsíň, annex, pohřební komora a pokladnice. Každý bod otevře faktickou kartu s textem, fotkou a zdroji.",
       "facts": [
         "Kliknuté předměty se označují ve spodním pásu jako prohlédnuté katalogizační karty.",
@@ -183,7 +182,7 @@
       "id": "antechamber",
       "index": "03",
       "label": "Předsíň",
-      "title": "Předsíň plná výbavy",
+      "title": "Předsíň",
       "summary": "První pohled na nahuštěné poklady.",
       "x": 50,
       "y": 34,
@@ -298,7 +297,6 @@
       "icon": "MA",
       "name": "Zlatá pohřební maska",
       "roomId": "burial",
-      "short": "Nejznámější obraz Tutanchamona.",
       "body": "Zlatá maska kryla hlavu a ramena mumie. Díky výrazné tváři, pruhované pokrývce hlavy a modrým detailům se stala symbolem celého objevu.",
       "facts": [
         "Maska nebyla samostatná dekorace, ale součást ochrany mumie.",
@@ -319,7 +317,6 @@
       "icon": "SA",
       "name": "Kvarcitový sarkofág",
       "roomId": "burial",
-      "short": "Kamenný sarkofág v pohřební komoře.",
       "body": "V kvarcitovém sarkofágu byly uloženy rakve s mumií Tutanchamona. V půdorysu jde o střed pohřební komory.",
       "facts": [
         "Sarkofág a rakve ukazují postupné vrstvy ochrany těla.",
@@ -340,7 +337,6 @@
       "icon": "RA",
       "name": "Zlatá vnitřní rakev",
       "roomId": "burial",
-      "short": "Nejvnitřnější z rakví chránících tělo faraona.",
       "body": "Nejvnitřnější rakev patřila k nejvýraznějším nálezům z pohřební komory. Ve skutečné dokumentaci tvoří část složitého souboru rakví a schrán.",
       "facts": [
         "Rakve byly součástí vícevrstvé pohřební ochrany.",
@@ -361,7 +357,6 @@
       "icon": "KA",
       "name": "Kanopická výbava",
       "roomId": "treasury",
-      "short": "Svatyně, schrána a ochrana vnitřních orgánů.",
       "body": "Kanopická výbava souvisela s uložením mumifikovaných vnitřních orgánů. Patří k hlavním rituálním předmětům z pokladnice.",
       "facts": [
         "Kanopická schrána měla čtyři dutiny pro miniaturní rakvičky.",
@@ -382,7 +377,6 @@
       "icon": "AN",
       "name": "Svatyně s Anubisem",
       "roomId": "treasury",
-      "short": "Černozlatý Anubis na schráně.",
       "body": "Anubis byl spojen s mumifikací a ochranou mrtvých. Ve slavné podobě sedí černý šakal na pozlacené schráně.",
       "facts": [
         "Tento předmět patřil do pokladnice.",
@@ -403,7 +397,6 @@
       "icon": "TR",
       "name": "Zlatý trůn",
       "roomId": "antechamber",
-      "short": "Král a Anchesenamon v intimní scéně.",
       "body": "Zlatý trůn patří k nejznámějším předmětům z předsíně. Výjev ukazuje Tutanchamona a Anchesenamon a zároveň připomíná náboženský kontext doby.",
       "facts": [
         "Trůn je dobrý bod pro vysvětlení královského páru.",
@@ -424,7 +417,6 @@
       "icon": "VU",
       "name": "Rozebraný královský vůz",
       "roomId": "antechamber",
-      "short": "Vozy a jejich části v předsíni.",
       "body": "Hrobka obsahovala několik vozů a mnoho jejich částí. Bezpečnější je mluvit obecně o královských vozech, ne každý označit jako válečný.",
       "facts": [
         "Předměty byly v předsíni velmi nahuštěné.",
@@ -445,7 +437,6 @@
       "icon": "LE",
       "name": "Rituální lehátko",
       "roomId": "antechamber",
-      "short": "Stylizované pohřební lehátko se zvířecí hlavou.",
       "body": "Pohřební lehátka měla výrazné stylizované zvířecí tvary. V předsíni patřila k nejviditelnějším velkým objektům.",
       "facts": [
         "Zvířecí forma není dekorace navíc, ale součást rituálního významu.",
@@ -466,7 +457,6 @@
       "icon": "ST",
       "name": "Dvě strážní sochy",
       "roomId": "antechamber",
-      "short": "Postavy u vstupu do pohřební komory.",
       "body": "Dvě strážní postavy symbolicky chránily vstup do pohřební komory. V půdorysu jsou umístěné právě u průchodu z předsíně.",
       "facts": [
         "Jejich poloha pomáhá divákovi pochopit vztah předsíně a pohřební komory.",
@@ -487,7 +477,6 @@
       "icon": "SE",
       "name": "Herní skříňka / senet",
       "roomId": "annex",
-      "short": "Hra jako součást posmrtné výbavy.",
       "body": "Herní skříňka ukazuje každodenní i symbolický rozměr posmrtné výbavy. V této nové variantě už sama aplikace není hra; senet je pouze historický předmět k prohlédnutí.",
       "facts": [
         "Senet souvisí s představami o cestě a posmrtném životě.",
@@ -508,7 +497,6 @@
       "icon": "DY",
       "name": "Dýka z meteoritického železa",
       "roomId": "burial",
-      "short": "Čepel z materiálu mimořádného původu.",
       "body": "Výzkum složení čepele podporuje meteoritický původ železa. Dýka dobře ukazuje, že i malý předmět může nést výrazný vědecký příběh.",
       "facts": [
         "Meteoritické železo bylo ve starověku mimořádně cenné.",
@@ -529,7 +517,6 @@
       "icon": "LO",
       "name": "Modelová loď",
       "roomId": "annex",
-      "short": "Model pro cestu a posmrtný život.",
       "body": "Modelové lodě souvisely s cestou, služebnictvem a představami o posmrtném životě. V hrobce bylo více modelů, ne jeden izolovaný předmět.",
       "facts": [
         "Model lodě je dobré zobrazit v annexu nebo pokladnici podle konkrétní interpretace scény.",
@@ -550,7 +537,6 @@
       "icon": "PO",
       "name": "Alabastrový lotosový pohár",
       "roomId": "antechamber",
-      "short": "Pohár ve tvaru lotosu.",
       "body": "Alabastrový pohár ve tvaru otevřeného lotosu symbolicky přeje králi život, obnovu a trvání.",
       "facts": [
         "Lotos je v egyptském prostředí výrazný symbol obnovy.",
@@ -571,7 +557,6 @@
       "icon": "VE",
       "name": "Vějíř z pštrosího peří",
       "roomId": "burial",
-      "short": "Vějíř s loveckým výjevem.",
       "body": "Vějíř z pohřební komory byl spojen s pštrosími pery a loveckým výjevem. Patří k předmětům, které ukazují královskou reprezentaci i osobní rozměr výbavy.",
       "facts": [
         "Původně měl střídavě hnědá a bílá pštrosí pera.",

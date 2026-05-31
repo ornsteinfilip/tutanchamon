@@ -17,9 +17,7 @@ const els = {
   filterTabs: document.getElementById('filterTabs'),
   roomList: document.getElementById('roomList'),
   planCanvas: document.getElementById('planCanvas'),
-  detailKicker: document.getElementById('detailKicker'),
   detailTitle: document.getElementById('detailTitle'),
-  detailMeta: document.getElementById('detailMeta'),
   detailBody: document.getElementById('detailBody'),
   relatedPeople: document.getElementById('relatedPeople'),
   detailSources: document.getElementById('detailSources'),
@@ -224,9 +222,7 @@ function selectRoom(roomId) {
   state.activeRoomId = room.id;
   state.activeHotspotId = null;
   showDetail({
-    kicker: 'Místnost',
     title: room.title,
-    meta: room.summary,
     body: room.body,
     facts: room.facts,
     sourceIds: room.sourceIds,
@@ -248,9 +244,7 @@ function selectHotspot(hotspotId) {
     if (!artifact) return;
     state.viewedArtifacts.add(artifact.id);
     showDetail({
-      kicker: 'Předmět',
       title: artifact.name,
-      meta: `${getRoomTitle(artifact.roomId)} · ${artifact.short}`,
       body: artifact.body,
       facts: artifact.facts,
       sourceIds: artifact.sourceIds,
@@ -259,9 +253,7 @@ function selectHotspot(hotspotId) {
     });
   } else {
     showDetail({
-      kicker: hotspot.kind === 'person' ? 'Osoba / souvislost' : 'Fakt',
       title: hotspot.title,
-      meta: getRoomTitle(hotspot.roomId),
       body: hotspot.body,
       facts: hotspot.facts,
       sourceIds: hotspot.sourceIds,
@@ -276,9 +268,7 @@ function selectHotspot(hotspotId) {
 function showDefaultDetail() {
   const detail = state.data.meta.defaultDetail;
   showDetail({
-    kicker: detail.kicker,
     title: detail.title,
-    meta: detail.meta,
     body: detail.body,
     facts: detail.facts,
     sourceIds: []
@@ -286,9 +276,7 @@ function showDefaultDetail() {
 }
 
 function showDetail(detail) {
-  els.detailKicker.textContent = detail.kicker;
   els.detailTitle.textContent = detail.title;
-  els.detailMeta.textContent = detail.meta;
   els.detailBody.textContent = buildDetailText(detail.body, detail.facts ?? []);
   renderRelatedPeople(detail.relatedPersonIds ?? []);
   renderDetailSources(detail.sourceIds ?? [], detail.photo);
@@ -310,9 +298,7 @@ function renderRelatedPeople(personIds) {
     chip.title = person.role;
     chip.addEventListener('click', () => {
       showDetail({
-        kicker: 'Osoba',
         title: person.name,
-        meta: person.role,
         body: person.body,
         facts: [],
         sourceIds: person.sourceIds,
@@ -441,10 +427,6 @@ function getHotspotTitle(hotspot) {
   return artifact?.name ?? hotspot.label;
 }
 
-function getRoomTitle(roomId) {
-  return state.data.rooms.find((entry) => entry.id === roomId)?.title ?? 'KV62';
-}
-
 function buildLink(url, label) {
   const link = document.createElement('a');
   link.href = url;
@@ -456,9 +438,7 @@ function buildLink(url, label) {
 
 function showLoadError(error) {
   els.app.classList.remove('is-splash');
-  els.detailKicker.textContent = 'Chyba načtení';
   els.detailTitle.textContent = 'Nepodařilo se načíst content.json';
-  els.detailMeta.textContent = 'Spusť tuto variantu přes lokální web server, ne přímo jako file://.';
-  els.detailBody.textContent = String(error);
+  els.detailBody.textContent = `Spusť tuto variantu přes lokální web server, ne přímo jako file://. ${String(error)}`;
   els.statusText.textContent = 'Obsah se nenačetl.';
 }

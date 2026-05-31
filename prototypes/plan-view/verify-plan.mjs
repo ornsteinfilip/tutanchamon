@@ -29,6 +29,7 @@ check('intro keeps only the title text', content.meta?.intro?.title === 'Hrobka 
 check('intro uses the requested local photo', content.meta?.intro?.photo?.src === './assets/intro/tomb-entrance.jpg' && fs.existsSync(new URL('./assets/intro/tomb-entrance.jpg', root)));
 check('intro removed drawn entrance elements', !/class="cliffWall"|class="tombEntrance"|class="stairCut"|class="sun"/.test(index));
 check('detail panel has no fact list UI', !/factList|renderFacts/.test(index + app));
+check('detail panel has no kicker or subtitle UI', !/detailKicker|detailMeta|class="meta"|artifact\.short|getRoomTitle|Předsíň plná výbavy|Vozy a jejich části v předsíni/.test(index + app + JSON.stringify(content)));
 check('app keeps factual copy out of JS', !/První schod ke vstupu|Zlatá pohřební maska|Howard Carter/.test(app));
 
 const failed = checks.filter((entry) => !entry.ok);
