@@ -466,9 +466,10 @@
       "name": "Anchesenamon",
       "role": "Královna a manželka Tutanchamona",
       "photoId": "ankhesenamon-throne",
-      "body": "S Tutanchamonem je spojena například výjevem na zlatém trůnu. Bezpečná identifikace jejího hrobu nebo mumie v KV62 chybí.",
+      "body": "Anchesenamon byla manželkou Tutanchamona a patřila ke královské rodině 18. dynastie. V KV62 ji připomíná výjev na zlatém trůnu, kde stojí proti sedícímu králi. Scéna ukazuje královský pár v osobnějším prostředí a doplňuje rodinný kontext mladého faraona.",
       "sourceIds": [
         "S02",
+        "S03",
         "S06"
       ]
     },
